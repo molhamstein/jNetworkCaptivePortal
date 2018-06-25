@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+	<title>Login V9</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+
+	<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+			<form id="login100-form"  class="login100-form validate-form ">
+				<span class="login100-form-title p-b-37">
+					تسجيل الدخول
+				</span>
+
+				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال رقم الهاتف">
+					<input class="input100" type="text" name="phone-l" placeholder="رقم الهاتف">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-25" data-validate = "يرجى إدخال كلمة السر">
+					<input class="input100" type="password" name="pass-l" placeholder="كلمة السر">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-login100-form-btn">
+					<button  class="login100-form-btn">
+						تسجيل الدخول
+					</button>
+				</div>
+				<div class="text-center p-t-20 p-b-20">
+					<span class="txt1">
+					  أو
+					</span>
+				</div>
+				<div class="container-signup100-btn">
+					<button id="signup-form-btn" class="signup100-btn">
+					 إنشاء حساب
+					</button>
+				</div>
+				<div class="text-center p-t-20 p-b-20">
+					<span class="txt1">
+						<a id="forget100-form-show" href="#">نسيت كلمة المرور ؟</a>
+					</span>
+				</div>
+			</form>
+			<form id="forget100-form"  class="forget100-form validate-form ">
+				<span  class="forget100-form-title p-b-37">
+	أدخل رقم الهاتف الخاص بك و سيتم إرسال رسالة لاستعادة كلمة المرور
+				</span>
+				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال رقم الهاتف">
+					<input class="input100" type="text" name="phone-f" placeholder="رقم الهاتف">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="container-forget100-form-btn">
+					<button id="verify100-form-show"  class="forget100-form-btn">
+					إرسال الرمز
+					</button>
+				</div>
+			</form>
+			<form id="verify100-form"  class="verify100-form validate-form ">
+				<span  class="verify100-form-title p-b-37">
+	يرجى إدخال الرمز الذي سيصل إلى هاتفك للتحقق من الحساب
+				</span>
+				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال الرمز الخاص بك">
+					<input class="input100" type="text" name="code-v" placeholder="رمز التحقق">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="container-verify100-form-btn">
+					<button id="reset100-form-show"  class="verify100-form-btn">
+					أدخل الرمز
+					</button>
+				</div>
+			</form>
+			<form id="reset100-form"  class="reset100-form validate-form ">
+				<span  class="forget100-form-title p-b-37">
+					يرجى إدخال كلمة المرور الجديدة
+				</span>
+				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال كلمة المرور">
+					<input class="input100" type="password" name="newPassword-r" placeholder="كلمة المرور الجديد">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="container-reset100-form-btn">
+					<button class="reset100-form-btn">
+					تعيين كلمة المرور 
+					</button>
+				</div>
+			</form>
+
+			<form id="signup100-form" class="signup100-form validate-form ">
+				<span class="signup100-form-title p-b-37">
+					حساب جديد
+				</span>
+				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال الاسم">
+					<input class="input100" type="text" name="username-s" placeholder="الاسم">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-25" data-validate = "يرجى إدخال كلمة السر">
+					<input class="input100" type="password" name="pass-s" placeholder="كلمة السر">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input m-b-25" data-validate = "كلمة المرور غير متطابقة !">
+					<input class="input100" type="password" name="pass-re-s" placeholder="أعد إدخال كلمة السر">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال رقم الموبايل">
+					<input class="input100" type="text" name="username-s" placeholder="رقم الموبايل">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال تاريخ الميلاد">
+					<input class="input100" type="text" id="birth-s" name="birth-s"  value="" placeholder="الميلاد">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى اختيار الجنس">
+			 <select class="form-control select-input100" id="sel1" >
+				     <option value="" disabled selected>الجنس</option>
+				 <option >ذكر</option>
+<option >أنثى</option>
+ </select>
+				</div>
+				<div class="wrap-input100 validate-input m-b-20"  data-validate="يرجى اختيار مهنة من القائمة">
+       <select class="form-control select-input100" id="sel2">
+				  <option value="" disabled selected>المهنة</option>
+	 <option>1</option>
+	 <option>2</option>
+	 <option>3</option>
+	 <option>4</option>
+ </select>
+				</div>
+
+				<div class="container-signup100-btn">
+					<button type="submit" class="signup100-btn">
+					 إنشاء حساب
+					</button>
+				</div>
+			</form>
+
+
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>
