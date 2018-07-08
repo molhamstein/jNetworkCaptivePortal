@@ -143,7 +143,7 @@
 				<span  class="verify100-form-title p-b-37">
 	يرجى إدخال الرمز و رقم الهاتف الخاص بحسابك
 				</span>
-				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال الرمز الخاص ">
+				<div class="wrap-input100 validate-input m-b-20" data-validate=" يرجى إدخال رقم الهاتف و التأكد من إدخاله بالصيغة الدولية">
 					<input class="input100" type="text" name="mobile" placeholder="رقم الهاتف">
 					<span class="focus-input100"></span>
 				</div>
