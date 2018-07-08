@@ -262,5 +262,26 @@
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 
+
+<?php if($chapid) : ?> 
+<script type="text/javascript" src="js/md5.js"></script>
+<script type="text/javascript">
+<!--
+    function doLogin() {
+    <?php if(strlen($chapid) < 1) echo "return true;\n"; ?>
+    document.sendin.username.value = document.login.username.value;
+    document.sendin.password.value = hexMD5('<?php echo $chapid; ?>' + document.login.password.value + '<?php echo $chapchallenge; ?>');
+    document.sendin.submit();
+    return false;
+    }
+//-->
+</script>
+<?php endif; ?>
+
+<script type="text/javascript">
+  document.login.username.focus();
+</script>
+
+
 </body>
 </html>
