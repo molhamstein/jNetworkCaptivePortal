@@ -75,6 +75,17 @@
   </div>
 </div>
 	<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+		<?php if($error) : ?>
+            <div class="alert alert-danger"><?php echo $error; ?></div>
+        <?php endif; ?>
+
+        <div class="alert alert-info">Please log on to use the hotspot service.</div>
+		<?php if($trial == 'yes') : ?> 
+			<div class="alert alert-info">
+				Free trial available, <a href="<?php echo $linkloginonly; ?>?dst=<?php echo $linkorigesc; ?>&amp;username=T-<?php echo $macesc; ?>">click here</a>.
+			</div>
+		<?php endif; ?>
+
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<form id="login100-form"  class="login100-form validate-form " action="<?php echo $linkloginonly; ?>" role="form" method="post">
 				<span class="login100-form-title p-b-37">
@@ -82,7 +93,7 @@
 				</span>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate=" يرجى إدخال رقم الهاتف و التأكد من إدخاله بالصيغة الدولية">
-					<input class="input100" type="text" name="mobile" placeholder="رقم الهاتف">
+					<input class="input100" type="text" name="username" placeholder="رقم الهاتف">
 					<span class="focus-input100"></span>
 				</div>
 
