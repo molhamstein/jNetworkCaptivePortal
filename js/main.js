@@ -214,6 +214,78 @@
 
         });
         /*==================================================================
+        [ submit Reset Password ]*/
+        $('#forget100-form-btn').click(function(evt){
+          evt.preventDefault();
+          var inputs = $('#forget100-form .validate-input .input100');
+            var check = true;
+            for(var i=0; i<inputs.length; i++) {
+                if(validate(inputs[i]) == false){
+                    showValidate(inputs[i]);
+                    check=false;
+                }
+            }
+
+            if(check){
+              var data = $('#forget100-form').serializeJSON();
+              data.mobile = encodeURIComponent(data.mobile);
+              $.ajax({
+                  type: "POST",
+                  url: "http://104.217.253.15:8000/api/clients/reset",
+                  data:JSON.stringify(data),
+                  cache: false,
+                  contentType: 'application/json',
+                  statusCode: {
+                    200: function (response) {
+
+                   },
+                   201: function (response) {
+
+                     $('.modal-body').text('Something went wrong, please try again later');
+                     $('#errorModal').modal('show');
+                  },
+                  204: function (response) {
+                    $('#forget100-form').formShow('#verify100-form','fadeOutDown','fadeInUp');
+                    $('#verify100-form input[name=mobile]').val(data.mobile);
+                 },
+                   400: function (response) {
+                     $('.modal-body').text('Something went wrong, please try again later');
+                     $('#errorModal').modal('show');
+                  },
+                  400: function (response) {
+                    $('.modal-body').text('Something went wrong, please try again later');
+                    $('#errorModal').modal('show');
+                 }
+                  ,
+                   404: function (response) {
+                   $('.modal-body').text(response.responseJSON.error.message);
+                   $('#errorModal').modal('show');
+                 },
+                   422: function (response) {
+                     console.log('422');
+                  $('.modal-body').text(response.responseJSON.error.message);
+                  $('#errorModal').modal('show');
+                },
+                  },
+                  success: function(html) {
+
+                  },
+                  error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    $('.modal-body').text('Something went wrong, please try again later');
+                    $('#errorModal').modal('show');
+                  },
+                  beforeSend: function() {
+                    $('.container-loader').removeClass('hidden');
+                    $('.container-loader').addClass('flex');
+                  },
+                  complete: function() {
+                    $('.container-loader').removeClass('flex');
+                    $('.container-loader').addClass('hidden');
+                  }
+              });
+            }
+        });
+        /*==================================================================
         [ submit login ]*/
         $('#login100-form').submit(function(evt){
           var inputs = $('#login100-form .validate-input .input100 ');
@@ -252,14 +324,24 @@
     });
 
      function validate (input) {
+
         if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
             if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
                 return false;
             }
 
-        }else if ($(input).attr('type') == 'mobile' || $(input).attr('name') == 'mobile') {
-          if($(input).val().trim().match(/([+]?\d{1,2}[.-\s]?)?(\d{3}[.-]?){2}\d{4}/) == null) {
-              return false;
+        }else if ($(input).attr('name') == 'mobile') {
+          var num = $(input).val().trim();
+          if($(input).val().trim().match(/(^09)+[0-9]{8}$/)) {
+             num = num.replace('0','00963');
+             $(input).val(num);
+          }else if ($(input).val().trim().match(/(^[+]963)+[0-9]{9}$/)) {
+            num = num.replace('+','00');
+            $(input).val(num);
+          } else if ($(input).val().trim().match(/(^00963)+[0-9]{9}$/)) {
+            return true;
+          } else {
+            return false;
           }
         }
          else if ($(input).is('select')) {
@@ -276,9 +358,7 @@
 
     function showValidate(input) {
         var thisAlert = $(input).parent();
-
         $(thisAlert).addClass('alert-validate');
-
         $(thisAlert).append('<span class="btn-hide-validate">&#xf135;</span>')
         $('.btn-hide-validate').each(function(){
             $(this).on('click',function(){

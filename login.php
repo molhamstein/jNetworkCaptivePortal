@@ -81,7 +81,7 @@
         <?php endif; ?>
 
         <div class="alert alert-info">Please log on to use the hotspot service.</div>
-		<?php if($trial == 'yes') : ?> 
+		<?php if($trial == 'yes') : ?>
 			<div class="alert alert-info">
 				Free trial available, <a href="<?php echo $linkloginonly; ?>?dst=<?php echo $linkorigesc; ?>&amp;username=T-<?php echo $macesc; ?>">click here</a>.
 			</div>
@@ -93,7 +93,7 @@
 					تسجيل الدخول
 				</span>
 
-				<div class="wrap-input100 validate-input m-b-20" data-validate=" يرجى إدخال رقم الهاتف و التأكد من إدخاله بالصيغة الدولية">
+				<div class="wrap-input100 validate-input m-b-20" data-validate=" يرجى إدخال رقم الهاتف و التأكد من إدخال بشكل صحيح">
 					<input class="input100" type="text" name="username" placeholder="رقم الهاتف">
 					<span class="focus-input100"></span>
 				</div>
@@ -138,12 +138,12 @@
 				<span  class="forget100-form-title p-b-37">
 	أدخل رقم الهاتف الخاص بك و سيتم إرسال رسالة لاستعادة كلمة المرور
 				</span>
-				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال رقم الهاتف">
-					<input class="input100" type="text" name="phone-f" placeholder="رقم الهاتف">
+				<div class="wrap-input100 validate-input m-b-20" data-validate=" يرجى إدخال رقم الهاتف و التأكد من إدخاله بشكل صحيح">
+					<input class="input100" type="text" name="mobile" placeholder="رقم الهاتف">
 					<span class="focus-input100"></span>
 				</div>
 				<div class="container-forget100-form-btn">
-					<button  class="forget100-form-btn">
+					<button id="forget100-form-btn" class="forget100-form-btn">
 					إرسال الرمز
 					</button>
 				</div>
@@ -155,7 +155,7 @@
 				<span  class="verify100-form-title p-b-37">
 	يرجى إدخال الرمز و رقم الهاتف الخاص بحسابك
 				</span>
-				<div class="wrap-input100 validate-input m-b-20" data-validate=" يرجى إدخال رقم الهاتف و التأكد من إدخاله بالصيغة الدولية">
+				<div class="wrap-input100 validate-input m-b-20" data-validate=" يرجى إدخال رقم الهاتف و التأكد من إدخاله بشكل صحيح">
 					<input class="input100" type="text" name="mobile" placeholder="رقم الهاتف">
 					<span class="focus-input100"></span>
 				</div>
@@ -203,7 +203,7 @@
 					<input class="input100" type="password" name="password" placeholder="كلمة السر">
 					<span class="focus-input100"></span>
 				</div>
-				<div class="wrap-input100 validate-input m-b-20" data-validate=" يرجى إدخال رقم الهاتف و التأكد من إدخاله بالصيغة الدولية">
+				<div class="wrap-input100 validate-input m-b-20" data-validate=" يرجى إدخال الرقم الهاتف و التأكد من إدخاله بشكل صحيح">
 					<input class="input100" type="text" name="mobile" placeholder="رقم الموبايل">
 					<span class="focus-input100"></span>
 				</div>
@@ -274,7 +274,7 @@
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 
-	<?php if($chapid) : ?> 
+	<?php if($chapid) : ?>
 	<script type="text/javascript" src="js/md5.js"></script>
 	<script type="text/javascript">
 	<!--
