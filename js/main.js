@@ -107,7 +107,7 @@
 
                      $.ajax({
                          type: "POST",
-                         url: "http://104.217.253.15:8000/api/clients",
+                         url: "http://185.84.236.39:3000/api/clients",
                          cache: false,
                          contentType: 'application/json',
                          data: JSON.stringify(data),
@@ -169,18 +169,28 @@
               var data = "mobile="+mobileNum+"&"+"code="+code;
               $.ajax({
                   type: "GET",
-                  url: "http://104.217.253.15:8000/api/clients/confirm2",
+                  url: "http://185.84.236.39:3000/api/clients/confirm2",
                   data:data,
                   cache: false,
                   contentType: 'application/json',
                   statusCode: {
                     200: function (response) {
-                     $('#verify100-form').formShow('#login100-form','fadeOutDown','fadeInUp');
+                      if(response.statusCode == '601') {
+                        $('.modal-body').text('تأكد من رقم الهاتف و الكود !');
+                        $('#errorModal').modal('show');
+                      }else if(response.status == 402) {
+                        console.log('ok');
+                        $('#verify100-form').formShow('#login100-form','fadeOutDown','fadeInUp');
+                      }
                    },
                    201: function (response) {
                      $('.modal-body').text('Something went wrong, please try again later');
                      $('#errorModal').modal('show');
                   },
+                  202: function (response) {
+
+
+                 },
                    400: function (response) {
                      $('.modal-body').text('Something went wrong, please try again later');
                      $('#errorModal').modal('show');
@@ -231,22 +241,21 @@
               data.mobile = encodeURIComponent(data.mobile);
               $.ajax({
                   type: "POST",
-                  url: "http://104.217.253.15:8000/api/clients/reset",
+                  url: "http://185.84.236.39:3000/api/clients/reset",
                   data:JSON.stringify(data),
                   cache: false,
                   contentType: 'application/json',
                   statusCode: {
                     200: function (response) {
-
+                      $('.modal-body').text('Something went wrong, please try again later');
+                      $('#errorModal').modal('show');
                    },
                    201: function (response) {
-
                      $('.modal-body').text('Something went wrong, please try again later');
                      $('#errorModal').modal('show');
                   },
                   204: function (response) {
-                    $('#forget100-form').formShow('#verify100-form','fadeOutDown','fadeInUp');
-                    $('#verify100-form input[name=mobile]').val(data.mobile);
+                    $('#forget100-form').formShow('#confirmreset100-form','fadeOutDown','fadeInUp');
                  },
                    400: function (response) {
                      $('.modal-body').text('Something went wrong, please try again later');

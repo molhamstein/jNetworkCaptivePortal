@@ -169,20 +169,28 @@
 					</button>
 				</div>
 			</form>
-			<form id="reset100-form"  class="reset100-form validate-form ">
-				<span  class="forget100-form-title p-b-37">
-					يرجى إدخال كلمة المرور الجديدة
-				</span>
-				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال كلمة المرور">
-					<input class="input100" type="password" name="newPassword-r" placeholder="كلمة المرور الجديد">
-					<span class="focus-input100"></span>
-				</div>
-				<div class="container-reset100-form-btn">
-					<button class="reset100-form-btn">
-					تعيين كلمة المرور
-					</button>
-				</div>
-			</form>
+
+      <form id="confirmreset100-form"  class="confirmreset100-form validate-form ">
+        <div  class="login100-form-backArrow">
+          <i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+        </div>
+        <span  class="confirmreset100-form-title p-b-37">
+          يرجى إدخال كلمة المرور الجديدة
+        </span>
+        <div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال رمز التحقق">
+          <input class="input100" type="password" name="code" placeholder="رمز التحقق">
+          <span class="focus-input100"></span>
+        </div>
+        <div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال كلمة المرور">
+          <input class="input100" type="password" name="newPassword" placeholder="كلمة المرور الجديد">
+          <span class="focus-input100"></span>
+        </div>
+        <div class="container-confirmreset100-form-btn">
+          <button class="confirmreset100-form-btn">
+          تعيين كلمة المرور
+          </button>
+        </div>
+      </form>
 
 			<form id="signup100-form" class="signup100-form validate-form ">
 				<div  class="login100-form-backArrow">

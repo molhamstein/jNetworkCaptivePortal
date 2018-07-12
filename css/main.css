@@ -289,11 +289,12 @@ margin-right:-33px;
   line-height: 1.2;
   text-align: center;
 }
-.reset100-form {
+
+.forget100-form {
   width: 100%;
   display: none;
 }
-.reset100-form-title {
+.forget100-form-title {
   display: block;
   font-family: Cairo-Bold;
   font-size: 18px;
@@ -301,11 +302,11 @@ margin-right:-33px;
   line-height: 1.2;
   text-align: center;
 }
-.forget100-form {
+.confirmreset100-form {
   width: 100%;
   display: none;
 }
-.forget100-form-title {
+.confirmreset100-form-title {
   display: block;
   font-family: Cairo-Bold;
   font-size: 18px;
@@ -489,7 +490,7 @@ background: url('../images/sort-down.png') no-repeat 6% 50% #ffffff;
   -ms-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
 }
 
-.container-reset100-form-btn {
+.container-confirmreset100-form-btn {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -499,7 +500,7 @@ background: url('../images/sort-down.png') no-repeat 6% 50% #ffffff;
   flex-wrap: wrap;
   justify-content: center;
 }
-.reset100-form-btn {
+.confirmreset100-form-btn {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -527,7 +528,7 @@ background: url('../images/sort-down.png') no-repeat 6% 50% #ffffff;
   -o-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.5);
   -ms-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.5);
 }
-.reset100-btn:hover {
+.confirmreset100-btn:hover {
   background-color: #4b2354;
   box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
   -moz-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
