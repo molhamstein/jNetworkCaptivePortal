@@ -80,7 +80,7 @@
             <div class="alert alert-danger"><?php echo $error; ?></div>
         <?php endif; ?>
 
-        <div class="alert alert-info">Please log on to use the hotspot service.</div>
+
 		<?php if($trial == 'yes') : ?>
 			<div class="alert alert-info">
 				Free trial available, <a href="<?php echo $linkloginonly; ?>?dst=<?php echo $linkorigesc; ?>&amp;username=T-<?php echo $macesc; ?>">click here</a>.
@@ -178,7 +178,7 @@
           يرجى إدخال كلمة المرور الجديدة
         </span>
         <div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال رمز التحقق">
-          <input class="input100" type="password" name="code" placeholder="رمز التحقق">
+          <input class="input100" type="text" name="code" placeholder="رمز التحقق">
           <span class="focus-input100"></span>
         </div>
         <div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال كلمة المرور">
@@ -186,7 +186,7 @@
           <span class="focus-input100"></span>
         </div>
         <div class="container-confirmreset100-form-btn">
-          <button class="confirmreset100-form-btn">
+          <button id="confirmreset100-form-btn" class="confirmreset100-form-btn">
           تعيين كلمة المرور
           </button>
         </div>

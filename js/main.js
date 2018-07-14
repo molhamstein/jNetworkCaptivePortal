@@ -179,8 +179,10 @@
                         $('.modal-body').text('تأكد من رقم الهاتف و الكود !');
                         $('#errorModal').modal('show');
                       }else if(response.status == 402) {
-                        console.log('ok');
                         $('#verify100-form').formShow('#login100-form','fadeOutDown','fadeInUp');
+                      } else {
+                        $('.modal-body').text('Something went wrong, please try again later');
+                        $('#errorModal').modal('show');
                       }
                    },
                    201: function (response) {
@@ -190,6 +192,79 @@
                   202: function (response) {
 
 
+                 },
+                   400: function (response) {
+                     $('.modal-body').text('Something went wrong, please try again later');
+                     $('#errorModal').modal('show');
+                  },
+                   404: function (response) {
+                   $('.modal-body').text('Something went wrong, please try again later');
+                   $('#errorModal').modal('show');
+                 },
+                   422: function (response) {
+                  $('.modal-body').text(response.responseJSON.error.message);
+                  $('#errorModal').modal('show');
+                },
+                  },
+                  success: function(html) {
+
+                  },
+                  error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    $('.modal-body').text('Something went wrong, please try again later');
+                    $('#errorModal').modal('show');
+                  },
+                  beforeSend: function() {
+                    $('.container-loader').removeClass('hidden');
+                    $('.container-loader').addClass('flex');
+                  },
+                  complete: function() {
+                    $('.container-loader').removeClass('flex');
+                    $('.container-loader').addClass('hidden');
+                  }
+              });
+            }
+
+        });
+        /*==================================================================
+        [ confirm verify ]*/
+        $('#confirmreset100-form-btn').click(function(evt){
+          evt.preventDefault();
+          var inputs = $('#confirmreset100-form-btn .validate-input .input100');
+            var check = true;
+            for(var i=0; i<inputs.length; i++) {
+                if(validate(inputs[i]) == false){
+                    showValidate(inputs[i]);
+                    check=false;
+                }
+            }
+            if(check){
+              var data = $('#confirmreset100-form').serializeJSON();
+
+              $.ajax({
+                  type: "POST",
+                  url: "http://185.84.236.39:3000/api/clients/confirmreset",
+                  data:JSON.stringify(data),
+                  cache: false,
+                  contentType: 'application/json',
+                  statusCode: {
+                    200: function (response) {
+                      if(response.statusCode == '604') {
+                        $('.modal-body').text('الكود المدخل غير صحيح !');
+                        $('#errorModal').modal('show');
+                      }else if(response.status == 402) {
+                        $('#confirmreset100-form').formShow('#login100-form','fadeOutDown','fadeInUp');
+                      } else {
+                        $('.modal-body').text('Something went wrong, please try again later');
+                        $('#errorModal').modal('show');
+                      }
+                   },
+                   201: function (response) {
+                     $('.modal-body').text('Something went wrong, please try again later');
+                     $('#errorModal').modal('show');
+                  },
+                  202: function (response) {
+                    $('.modal-body').text('Something went wrong, please try again later');
+                    $('#errorModal').modal('show');
                  },
                    400: function (response) {
                      $('.modal-body').text('Something went wrong, please try again later');
