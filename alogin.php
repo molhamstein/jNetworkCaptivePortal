@@ -97,8 +97,8 @@
 
 </div>
     <footer class="footer-alogin p-t-20">
-     <div class="container">
-       <span class="text-muted">Place sticky footer content here.</span>
+     <div class="container text-left">
+       <span class="text-muted">enjoy your free WIFI</span>
      </div>
    </footer>
 

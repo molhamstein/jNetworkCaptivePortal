@@ -1,6 +1,8 @@
 
 (function ($) {
     "use strict";
+    var smobile = "";
+    var spassword = "";
     /*==================================================================
     [ Animate Form Function ]*/
     $.fn.formShow = function(targetForm,hideAnimateType,showAnimateType) {
@@ -101,6 +103,7 @@
                     showValidate(inputs[i]);
                     check=false;
                 }
+
             }
             if(check){
              var data = $('#signup100-form').serializeJSON();
@@ -115,6 +118,9 @@
                            200: function (response) {
                             $('#signup100-form').formShow('#verify100-form','fadeOutDown','fadeInUp');
                             $('#verify100-form input[name=mobile]').val(data.mobile);
+                            smobile = data.mobile;
+                            spassword = data.password;
+                            console.log(smobile+" "+ spassword);
                           },
                           201: function (response) {
                             $('.modal-body').text('Something went wrong, please try again later');
@@ -180,6 +186,8 @@
                         $('#errorModal').modal('show');
                       }else if(response.status == 402) {
                         $('#verify100-form').formShow('#login100-form','fadeOutDown','fadeInUp');
+                        $('#login100-form input[name=username]').val(smobile);
+                        $('#login100-form input[name=password]').val(spassword);
                       } else {
                         $('.modal-body').text('Something went wrong, please try again later');
                         $('#errorModal').modal('show');
@@ -414,7 +422,7 @@
                 return false;
             }
 
-        }else if ($(input).attr('name') == 'mobile') {
+        }else if ($(input).attr('name') == 'mobile' || $(input).hasClass('mobile')) {
           var num = $(input).val().trim();
           if($(input).val().trim().match(/(^09)+[0-9]{8}$/)) {
              num = num.replace('0','00963');

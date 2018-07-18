@@ -754,6 +754,9 @@ background: url('../images/sort-down.png') no-repeat 6% 50% #ffffff;
 /*//////////////////////////////////////////////////////////////////
 [ Alogin page ]*/
 
+.navbar {
+  display: none;
+}
 .container-alogin {
   width: 100%;
   min-height: 80vh;

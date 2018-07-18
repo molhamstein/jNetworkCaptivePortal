@@ -94,7 +94,7 @@
 				</span>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate=" يرجى إدخال رقم الهاتف و التأكد من إدخال بشكل صحيح">
-					<input class="input100" type="text" name="username" placeholder="رقم الهاتف">
+					<input class="input100 mobile" type="text" name="username"  placeholder="رقم الهاتف">
 					<span class="focus-input100"></span>
 				</div>
 
