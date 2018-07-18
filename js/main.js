@@ -185,10 +185,15 @@
                         $('.modal-body').text('تأكد من رقم الهاتف و الكود !');
                         $('#errorModal').modal('show');
                       }else if(response.status == 402) {
-                        
                         $('#login100-form input[name=username]').val(smobile);
                         $('#login100-form input[name=password]').val(spassword);
-                        $("#login100-form").submit();
+                        if(smobile&&spassword != '') {
+                          $("#login100-form").submit();
+                        }else {
+                          $('#verify100-form').formShow('#login100-form','fadeOutDown','fadeInUp');
+                          $('#login100-form input[name=username]').val($('#verify100-form [name=mobile]').val());
+                        }
+
                       } else {
                         $('.modal-body').text('Something went wrong, please try again later');
                         $('#errorModal').modal('show');
