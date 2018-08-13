@@ -776,6 +776,7 @@ background: url('../images/sort-down.png') no-repeat 6% 50% #ffffff;
   z-index: 1;
 }
 
+
 .container-alogin::before {
   content: "";
   display: block;
@@ -806,6 +807,53 @@ color: #bd59d4;
 }
 .card-text a:hover  , .card-link:hover{
   color:#4b2354;
+}
+.center-video {
+  margin-left: auto;
+  margin-right: auto;
+}
+.ads {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ads-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:40px;
+  width: 175px;
+  border: 2px solid #bd59d4;
+  border-radius: 2px;
+  position: absolute;
+  align-self:flex-end;
+  right: 10px;
+  margin-bottom: -17px;
+  background-color: white;
+  color: #bd59d4;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.ads-timer:hover{
+  color: #762188;
+  border: 2px solid #762188;
+  transition: all 0.5s;
+}
+.ads a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ads a img , .ads a video {
+  max-width: 100%;
+  max-height: 100%;
+}
+.card-body {
+  margin-top: 10px;
 }
 .card-link{
   margin: 0!important;

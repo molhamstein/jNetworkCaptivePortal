@@ -55,7 +55,7 @@
 <body>
 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#"><?php echo $identity; ?></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -75,10 +75,24 @@
   </div>
 </nav>
 <div class="container-alogin" style="background-image: url('images/bg-01.jpg');">
-  <div class="col-md-6 col-sm-12" >
+  <div class="col-md-5 col-sm-12" >
     <div class="card">
-    <img class="card-img-top" src="http://via.placeholder.com/550x150" alt="Card image cap">
-    <div class="card-body">
+
+<div class="ads">
+  <div class="ads-timer">
+   Skipp Ads in 5 Sec
+  </div>
+  <a id="ads-link" target="_blank" href="https://www.google.com">
+ <img src="" />
+</a>
+<!--
+<video id="ads-video"  poster="http://www.html5videoplayer.net/poster/toystory.jpg" width="100%" height="250" autoplay>
+  <source src="http://www.html5videoplayer.net/videos/toystory.mp4" type="video/mp4">
+</video>
+-->
+</div>
+
+    <div class="card-body text-center">
       <h5 class="card-title">  تم تسجيل دخولك بنجاح</h5>
 
     </div>
@@ -120,6 +134,78 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+  <script>
+  $("#ads-video").on("canplay", function () {
+    canNav = false;
+    setTimeout(function(){ canNav = true;}, 5000);
+    var counter = 5;
+   var interval = setInterval(function() {
+    counter--;
+    if (counter == 0) {
+      clearInterval(interval);
+    $('.ads-timer').html('Skip ADS');
+    } else {
+      $('.ads-timer').html('Skipp Ads in ' + counter + ' Sec');
+    }
+}, 1000);
 
+  //********Must Get Video Not Cached !*********/
+  });
+  $('.ads img').one('load',function() {
+    canNav = false;
+    setTimeout(function(){ canNav = true;}, 5000);
+    var counter = 5;
+   var interval = setInterval(function() {
+    counter--;
+    if (counter == 0) {
+      clearInterval(interval);
+    $('.ads-timer').html('Skip ADS');
+    } else {
+      $('.ads-timer').html('Skipp Ads in ' + counter + ' Sec');
+    }
+}, 1000);
+  });
+
+  $('a').click( function(e) {
+    if(canNav){
+
+    } else {
+      if($(this).attr('id')=="ads-link") {
+       /********* Insert CLick to API**************/
+      } else {
+        e.preventDefault();
+        return false;
+      }
+
+    }
+  });
+  $( document ).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "http://185.84.236.39:3000/api/ADs/findOne",
+        cache: false,
+        statusCode: {
+          200: function (response) {
+            if(response.type == 'image') {
+              $('.ads img').attr('src',response.thumb_link);
+              $("#ads-link").prop("href", response.media_link)
+            }
+         }
+       },
+        success: function(html) {
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+          $('.modal-body').text('Something went wrong, please try again later');
+          $('#errorModal').modal('show');
+        },
+        beforeSend: function() {
+
+        },
+        complete: function() {
+
+        }
+    });
+  });
+  </script>
 </body>
 </html>
