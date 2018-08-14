@@ -80,15 +80,17 @@
 
 <div class="ads">
   <div class="ads-timer">
-   Skipp Ads in 5 Sec
+   تخطي الإعلان بعد 5 ثانية
   </div>
   <a id="ads-link" target="_blank" href="https://www.google.com">
- <img src="" />
+  <img id="ads-image" src="" />
+  <div id="ads-video">
+  </div>
+  <div id="ads-text">
+  </div>
 </a>
 <!--
-<video id="ads-video"  poster="http://www.html5videoplayer.net/poster/toystory.jpg" width="100%" height="250" autoplay>
-  <source src="http://www.html5videoplayer.net/videos/toystory.mp4" type="video/mp4">
-</video>
+
 -->
 </div>
 
@@ -96,9 +98,11 @@
       <h5 class="card-title">  تم تسجيل دخولك بنجاح</h5>
 
     </div>
+    <?php if($linkstatus):?>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">  <p class="card-text">إذا لم يحدث شيء <a href="<?php echo $linkstatus; ?>" > انقر هنا </a></p></li>
     </ul>
+  <?php  endif; ?>
     <div class="card-body text-center">
       <a href="#" class="card-link col-md-3"><i class="fa fa-facebook fa-2x"></i></a>
       <a href="#" class="card-link col-md-3"><i class="fa fa-twitter fa-2x"></i></a>
@@ -135,48 +139,54 @@
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
   <script>
-  $("#ads-video").on("canplay", function () {
-    canNav = false;
-    setTimeout(function(){ canNav = true;}, 5000);
-    var counter = 5;
+  var  canNav = false;
+  var  firstClick  = true;
+  function adsTimer() {
+   setTimeout(function(){ canNav = true;}, 5000);
+   var counter = 5;
    var interval = setInterval(function() {
     counter--;
     if (counter == 0) {
       clearInterval(interval);
-    $('.ads-timer').html('Skip ADS');
+    $('.ads-timer').html('تخطي الإعلان');
     } else {
-      $('.ads-timer').html('Skipp Ads in ' + counter + ' Sec');
+    $('.ads-timer').html('تخطي الإعلان بعد '+counter + ' ثانية');
     }
 }, 1000);
+  }
 
-  //********Must Get Video Not Cached !*********/
-  });
-  $('.ads img').one('load',function() {
-    canNav = false;
-    setTimeout(function(){ canNav = true;}, 5000);
-    var counter = 5;
-   var interval = setInterval(function() {
-    counter--;
-    if (counter == 0) {
-      clearInterval(interval);
-    $('.ads-timer').html('Skip ADS');
-    } else {
-      $('.ads-timer').html('Skipp Ads in ' + counter + ' Sec');
-    }
-}, 1000);
-  });
 
   $('a').click( function(e) {
     if(canNav){
+      
+    }else if ($(this).attr('id')=="ads-link") {
+     if(firstClick) {
+       clickInfo = '{"ad_id": 0,"client_id": 0}';
+       $.ajax({
+           type: "POST",
+           url: "http://185.84.236.39:3000/api/clicks",
+           cache: false,
+           data:JSON.parse(clickInfo),
+           statusCode: {
+             200: function (response) {
+
+            }
+          },
+           success: function(html) {
+             firstClick = false;
+           },
+           error: function(XMLHttpRequest, textStatus, errorThrown) {
+           },
+           beforeSend: function() {
+           },
+           complete: function() {
+           }
+       });
+     }
 
     } else {
-      if($(this).attr('id')=="ads-link") {
-       /********* Insert CLick to API**************/
-      } else {
-        e.preventDefault();
-        return false;
-      }
-
+      e.preventDefault();
+      return false;
     }
   });
   $( document ).ready(function() {
@@ -186,9 +196,43 @@
         cache: false,
         statusCode: {
           200: function (response) {
-            if(response.type == 'image') {
-              $('.ads img').attr('src',response.thumb_link);
-              $("#ads-link").prop("href", response.media_link)
+            if(response.type == 'video') {
+            var video = $('<video />', {
+            src: response.media_link,
+            type: 'video/mp4',
+            id:'videoOfAds',
+            controls: false,
+            autoplay:true
+            });
+              $('#ads-video').append(video);
+              $("#ads-link").prop("href", response.media_link);
+              var firstRun=true;
+              $("#videoOfAds").on("play", function () {
+                if(firstRun) {
+                  adsTimer();
+                }
+              //********Must Get Video Not Cached !*********/
+              });
+
+            } else if (response.type == 'image') {
+              $('#ads-image').attr('src',response.thumb_link);
+              $("#ads-link").prop("href", response.media_link);
+              $('#ads-image').one('load',function() {
+              adsTimer();
+              });
+            } else if (response.type == 'gif') {
+              $('#ads-image').attr('src',response.thumb_link);
+              $("#ads-link").prop("href", response.media_link);
+              $('#ads-image').one('load',function() {
+                adsTimer();
+              });
+            } else if (response.type == 'text') {
+              $("#ads-text").append('aaaaaaaaaaaaaaaaaaa');
+              $("#ads-link").prop("href", response.media_link);
+              adsTimer();
+            } else {
+              $('.modal-body').text('Something went wrong, please try again later');
+              $('#errorModal').modal('show');
             }
          }
        },

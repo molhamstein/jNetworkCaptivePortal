@@ -816,6 +816,14 @@ color: #bd59d4;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 250px;
+  background-color: #666666;
+  color: white;
+
+}
+
+#ads-text  {
+  color: white;
 }
 
 .ads-timer {
@@ -834,6 +842,7 @@ color: #bd59d4;
   color: #bd59d4;
   cursor: pointer;
   transition: all 0.5s;
+    font-size: 14px;
 }
 .ads-timer:hover{
   color: #762188;
