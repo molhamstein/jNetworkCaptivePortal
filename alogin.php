@@ -82,7 +82,7 @@
   <div class="ads-timer">
    تخطي الإعلان بعد 5 ثانية
   </div>
-  <a id="ads-link" target="_blank" href="https://www.google.com">
+  <a id="ads-link" target="_blank" href="">
   <img id="ads-image" src="" />
   <div id="ads-video">
   </div>
@@ -158,7 +158,7 @@
 
   $('a').click( function(e) {
     if(canNav){
-      
+
     }else if ($(this).attr('id')=="ads-link") {
      if(firstClick) {
        clickInfo = '{"ad_id": 0,"client_id": 0}';
@@ -192,10 +192,12 @@
   $( document ).ready(function() {
     $.ajax({
         type: "GET",
-        url: "http://185.84.236.39:3000/api/ADs/findOne",
+        url: "http://185.84.236.39:3000/api/ADs/RandomAD?limit=1",
         cache: false,
         statusCode: {
           200: function (response) {
+            response = JSON.stringify(response[0]);
+            response = JSON.parse(response);
             if(response.type == 'video') {
             var video = $('<video />', {
             src: response.media_link,
@@ -205,7 +207,7 @@
             autoplay:true
             });
               $('#ads-video').append(video);
-              $("#ads-link").prop("href", response.media_link);
+              $("#ads-link").prop("href", response.link);
               var firstRun=true;
               $("#videoOfAds").on("play", function () {
                 if(firstRun) {
@@ -216,19 +218,19 @@
 
             } else if (response.type == 'image') {
               $('#ads-image').attr('src',response.thumb_link);
-              $("#ads-link").prop("href", response.media_link);
+              $("#ads-link").prop("href", response.link);
               $('#ads-image').one('load',function() {
               adsTimer();
               });
             } else if (response.type == 'gif') {
               $('#ads-image').attr('src',response.thumb_link);
-              $("#ads-link").prop("href", response.media_link);
+              $("#ads-link").prop("href", response.link);
               $('#ads-image').one('load',function() {
                 adsTimer();
               });
             } else if (response.type == 'text') {
-              $("#ads-text").append('aaaaaaaaaaaaaaaaaaa');
-              $("#ads-link").prop("href", response.media_link);
+              $("#ads-text").append(response.text);
+              $("#ads-link").prop("href", response.link);
               adsTimer();
             } else {
               $('.modal-body').text('Something went wrong, please try again later');
