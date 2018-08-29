@@ -138,7 +138,7 @@
                          $('.modal-body').text(response.responseJSON.error.message);
                          $('#errorModal').modal('show');
                        }, 622: function (response) {
-                        $('.modal-body').text(response.responseJSON.error.message);
+                        $('.modal-body').text('عذرا, رقم الهاتف هذا مسجل مسبقا الرجاء التاكد من تفعيل الحساب و القيام بتسجيل الدخول');
                         $('#errorModal').modal('show');
                       },
                          },

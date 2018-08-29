@@ -56,19 +56,19 @@
 <div class="container-loader hidden">
 	<img src="images/Spinner.svg" alt="Kiwi standing on oval">
 </div>
-<div id="errorModal" class="modal fade" role="dialog">
+<div dir="rtl" id="errorModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Error</h4>
+        <h4 class="modal-title">خطأ</h4>
       </div>
       <div class="modal-body">
         <p>Some text in the modal.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">إغلاق</button>
       </div>
     </div>
 
