@@ -137,7 +137,10 @@
                           422: function (response) {
                          $('.modal-body').text(response.responseJSON.error.message);
                          $('#errorModal').modal('show');
-                       },
+                       }, 622: function (response) {
+                        $('.modal-body').text(response.responseJSON.error.message);
+                        $('#errorModal').modal('show');
+                      },
                          },
                          success: function(html) {
 
