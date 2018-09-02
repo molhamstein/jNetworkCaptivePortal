@@ -94,17 +94,19 @@
 				</span>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate=" يرجى إدخال رقم الهاتف و التأكد من إدخال بشكل صحيح">
-					<input class="input100 mobile" type="text" name="username"  placeholder="رقم الهاتف">
+					<input class="input100 mobile" type="text" name="mobile"  placeholder="رقم الهاتف">
 					<span class="focus-input100"></span>
 				</div>
-
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "يرجى إدخال كلمة السر">
 					<input class="input100" type="password" name="password" placeholder="كلمة السر">
 					<span class="focus-input100"></span>
 				</div>
-
+        <div>
+					<input id="extra-data" value="" type="text" name="extra-data" hidden>
+					<span class="focus-input100"></span>
+				</div>
 				<div class="container-login100-form-btn">
-					<button  class="login100-form-btn">
+					<button id="login100-form-btn" class="login100-form-btn">
 						تسجيل الدخول
 					</button>
 				</div>

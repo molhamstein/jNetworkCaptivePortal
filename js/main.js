@@ -388,8 +388,10 @@
         });
         /*==================================================================
         [ submit login ]*/
-        $('#login100-form').submit(function(evt){
-          var inputs = $('#login100-form .validate-input .input100 ');
+        $('#login100-form-btn').click(function(evt){
+          console.log('aaa');
+          evt.preventDefault();
+          var inputs = $('#login100-form .validate-input .input100');
             var check = true;
             for(var i=0; i<inputs.length; i++) {
                 if(validate(inputs[i]) == false){
@@ -397,10 +399,44 @@
                     check=false;
                 }
             }
-            if (!check) {
-              evt.preventDefault();
+
+            if(check){
+              var data = $('#login100-form').serializeJSON();
+              data.mobile = encodeURIComponent(data.mobile);
+              $.ajax({
+                  type: "POST",
+                  url: "http://185.84.236.39:3000/api/clients/login",
+                  data:JSON.stringify(data),
+                  cache: false,
+                  contentType: 'application/json',
+                  statusCode: {
+                    200: function (response) {
+                    $('#extra-data').val(response.userId);
+                    $('#login100-form').submit();
+                   },
+                  401: function (response) {
+                    $('.modal-body').text('تأكد من اسم المستخدم و كلمة السر');
+                    $('#errorModal').modal('show');
+                 }
+                  },
+                  error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    $('.modal-body').text('Something went wrong, please try again later');
+                    $('#errorModal').modal('show');
+                  },
+                  beforeSend: function() {
+                    $('.container-loader').removeClass('hidden');
+                    $('.container-loader').addClass('flex');
+                  },
+                  complete: function() {
+                    $('.container-loader').removeClass('flex');
+                    $('.container-loader').addClass('hidden');
+                  }
+              });
             }
         });
+
+
+
     /*==================================================================
     [ Validate ]*/
     /*
