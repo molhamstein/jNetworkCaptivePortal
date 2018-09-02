@@ -131,6 +131,9 @@
 					<span class="txt1">
 						<a id="verify100-form-show" href="#">التحقق من الحساب</a>
 					</span>
+          <div class="txt1">
+            v0.9.1
+          </div>
 				</div>
 			</form>
 			<form id="forget100-form"  class="forget100-form validate-form ">
