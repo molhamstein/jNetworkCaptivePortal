@@ -19,6 +19,12 @@
     $uptime=$_POST['uptime'];
     $refreshtimeout=$_POST['refresh-timeout'];
     $linkstatus=$_POST['link-status'];
+    if($_POST['extra-data']) {
+      $extraData=$_POST['extra-data'];
+    } else {
+      $extraData = '';
+    }
+
 ?>
 
 
@@ -160,8 +166,16 @@
     if(canNav){
 
     }else if ($(this).attr('id')=="ads-link") {
+     <?php if($extraData!=''): ?>
      if(firstClick) {
-       clickInfo = '{"ad_id": 0,"client_id": 0}';
+       clickInfo = '{"ad_id":0 ,"client_id":'+<?php echo $extraData ?>+'}';
+  /**     var extraData = {
+        "extra-data": {
+            'user_id' : 5,
+            'client_id':0
+        }
+
+} */
        $.ajax({
            type: "POST",
            url: "http://185.84.236.39:3000/api/clicks",
@@ -183,7 +197,7 @@
            }
        });
      }
-
+<?php endif; ?>
     } else {
       e.preventDefault();
       return false;
