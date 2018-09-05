@@ -94,7 +94,7 @@
 				</span>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate=" يرجى إدخال رقم الهاتف و التأكد من إدخال بشكل صحيح">
-					<input class="input100 mobile" type="text" name="mobile"  placeholder="رقم الهاتف">
+					<input class="input100 mobile" type="text" name="username"  placeholder="رقم الهاتف">
 					<span class="focus-input100"></span>
 				</div>
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "يرجى إدخال كلمة السر">
@@ -134,9 +134,7 @@
           <div class="txt1">
             v0.9.1
           </div>
-					<div class="txt1">
-            <?php echo "linkloginonly:".$linkloginonly.";"; ?>
-          </div>
+					
 				</div>
 			</form>
 			<form id="forget100-form"  class="forget100-form validate-form ">
