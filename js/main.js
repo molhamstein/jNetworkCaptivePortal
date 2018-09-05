@@ -402,7 +402,7 @@
 
             if(check){
               var data = $('#login100-form').serializeJSON();
-              data.mobile = encodeURIComponent(data.mobile);
+              data.mobile = encodeURIComponent(data.username);
               $.ajax({
                   type: "POST",
                   url: "http://185.84.236.39:3000/api/clients/login",
