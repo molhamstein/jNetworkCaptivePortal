@@ -132,7 +132,7 @@
 						<a id="verify100-form-show" href="#">التحقق من الحساب</a>
 					</span>
           <div class="txt1">
-            v0.9.1
+            v0.9.2
           </div>
 					
 				</div>
