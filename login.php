@@ -86,7 +86,7 @@
 				Free trial available, <a href="<?php echo $linkloginonly; ?>?dst=<?php echo $linkorigesc; ?>&amp;username=T-<?php echo $macesc; ?>">click here</a>.
 			</div>
 		<?php endif; ?>
-
+		
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<form id="login100-form"  class="login100-form validate-form " action="<?php echo $linkloginonly; ?>" role="form" method="post">
 				<span class="login100-form-title p-b-37">
@@ -133,6 +133,9 @@
 					</span>
           <div class="txt1">
             v0.9.1
+          </div>
+					<div class="txt1">
+            <?php echo "linkloginonly:".$linkloginonly.";"; ?>
           </div>
 				</div>
 			</form>

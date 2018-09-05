@@ -123,6 +123,7 @@
     <footer class="footer-alogin p-t-20">
      <div class="container text-left">
        <span class="text-muted">enjoy your free WIFI</span>
+       <span><?php echo "extraData:".$extraData.";"; ?> </span>
      </div>
    </footer>
 
