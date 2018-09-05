@@ -403,10 +403,13 @@
             if(check){
               var data = $('#login100-form').serializeJSON();
               data.mobile = encodeURIComponent(data.username);
+              var apiLoginData = {}
+              apiLoginData.mobile = data.mobile
+              apiLoginData.password = data.password
               $.ajax({
                   type: "POST",
                   url: "http://185.84.236.39:3000/api/clients/login",
-                  data:JSON.stringify(data),
+                  data:JSON.stringify(apiLoginData),
                   cache: false,
                   contentType: 'application/json',
                   statusCode: {
