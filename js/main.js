@@ -389,7 +389,6 @@
         /*==================================================================
         [ submit login ]*/
         $('#login100-form-btn').click(function(evt){
-          console.log('aaa');
           evt.preventDefault();
           var inputs = $('#login100-form .validate-input .input100');
             var check = true;

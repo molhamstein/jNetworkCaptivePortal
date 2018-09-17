@@ -19,11 +19,15 @@
     $uptime=$_POST['uptime'];
     $refreshtimeout=$_POST['refresh-timeout'];
     $linkstatus=$_POST['link-status'];
-    if($_POST['extra-data']) {
-      $extraData=$_POST['extra-data'];
-    } else {
-      $extraData = '';
+    $location = '';
+    $mobile = '';
+    if($_POST['location_id']) {
+      $location=$_POST['location_id'];
     }
+    if($_POST['username']) {
+      $mobile = $_POST['username'];
+    }
+
 
 ?>
 
@@ -148,6 +152,8 @@
   <script>
   var  canNav = false;
   var  firstClick  = true;
+  var adId ;
+  var location_id ;
   function adsTimer() {
    setTimeout(function(){ canNav = true;}, 5000);
    var counter = 5;
@@ -167,17 +173,13 @@
     if(canNav){
 
     }else if ($(this).attr('id')=="ads-link") {
-     <?php if($extraData!=''): ?>
-     if(firstClick) {
-       clickInfo = '{"ad_id":0 ,"client_id":'+<?php echo $extraData ?>+'}';
-  /**     var extraData = {
-        "extra-data": {
-            'user_id' : 5,
-            'client_id':0
-        }
+<?php if(($mobile!='') && ($location!='') ): ?>
 
-} */
+     if(firstClick) {
+       clickInfo = '{"ad_id":"'+adId+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'"}';
+
        $.ajax({
+
            type: "POST",
            url: "http://185.84.236.39:3000/api/clicks",
            cache: false,
@@ -198,7 +200,7 @@
            }
        });
      }
-<?php endif; ?>
+     <?php endif; ?>
     } else {
       e.preventDefault();
       return false;
@@ -213,6 +215,7 @@
           200: function (response) {
             response = JSON.stringify(response[0]);
             response = JSON.parse(response);
+            adId = response.id;
             if(response.type == 'video') {
             var video = $('<video />', {
             src: response.media_link,
