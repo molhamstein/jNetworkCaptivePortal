@@ -131,11 +131,12 @@
 					<span class="txt1">
 						<a id="verify100-form-show" href="#">التحقق من الحساب</a>
 					</span>
-          <div class="txt1">
-            v0.9.3
-          </div>
+
 
 				</div>
+        <div class="txt1 col-md-12 text-left">
+          v0.9.4
+        </div>
 			</form>
 			<form id="forget100-form"  class="forget100-form validate-form ">
 				<div  class="login100-form-backArrow">

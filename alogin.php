@@ -21,8 +21,8 @@
     $linkstatus=$_POST['link-status'];
     $location = '';
     $mobile = '';
-    if($_POST['location_id']) {
-      $location=$_POST['location_id'];
+    if($_POST['location-id']) {
+      $location=$_POST['location-id'];
     }
     if($_POST['username']) {
       $mobile = $_POST['username'];
@@ -153,7 +153,7 @@
   var  canNav = false;
   var  firstClick  = true;
   var adId ;
-  var location_id ;
+  var locationid ;
   function adsTimer() {
    setTimeout(function(){ canNav = true;}, 5000);
    var counter = 5;
@@ -176,7 +176,7 @@
 <?php if(($mobile!='') && ($location!='') ): ?>
 
      if(firstClick) {
-       clickInfo = '{"ad_id":"'+adId+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'"}';
+       clickInfo = '{"ad_id":"'+adId+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location-id":"'+<?php echo json_encode($location); ?>+'"}';
 
        $.ajax({
 
