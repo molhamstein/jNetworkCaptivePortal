@@ -206,12 +206,8 @@
 				<span class="signup100-form-title p-b-37">
 					حساب جديد
 				</span>
-				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال الاسم">
-					<input class="input100" type="text" name="username" placeholder="الاسم">
-					<span class="focus-input100"></span>
-				</div>
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "يرجى إدخال البريد الإلكتروني و التأكد من كتابته بشكل صحيح">
-					<input class="input100" type="text" name="email" placeholder="البريد الإلكتروني">
+				<div class="wrap-input100 m-b-20" data-validate="يرجى إدخال الاسم">
+					<input class="input100" type="text" name="username" placeholder="الاسم(اختياري)">
 					<span class="focus-input100"></span>
 				</div>
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "يرجى إدخال كلمة السر">
