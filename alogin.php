@@ -127,7 +127,7 @@
     <footer class="footer-alogin p-t-20">
      <div class="container text-left">
        <span class="text-muted">enjoy your free WIFI</span>
-       <span><?php echo "location:".$location.";"; ?> </span>
+       <span><?php echo "location:".$location.";"."username:".$username.";"; ?> </span>
      </div>
    </footer>
 
