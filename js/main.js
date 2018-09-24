@@ -416,7 +416,7 @@
                     $('#login100-form').submit();
                    },
                   401: function (response) {
-                    $('.modal-body').text('تأكد من اسم المستخدم و كلمة السر');
+                    $('.modal-body').text('تأكد من اسم المستخدم و كلمة السر' + JSON.stringify(apiLoginData));
                     $('#errorModal').modal('show');
                  }
                   },
