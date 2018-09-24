@@ -19,11 +19,15 @@
     $uptime=$_POST['uptime'];
     $refreshtimeout=$_POST['refresh-timeout'];
     $linkstatus=$_POST['link-status'];
-    if($_POST['extra-data']) {
-      $extraData=$_POST['extra-data'];
-    } else {
-      $extraData = '';
+    $location = '';
+    $mobile = '';
+    if($_POST['location-id']) {
+      $location=$_POST['location-id'];
     }
+    if($_POST['username']) {
+      $mobile = $_POST['username'];
+    }
+
 
 ?>
 
@@ -123,7 +127,7 @@
     <footer class="footer-alogin p-t-20">
      <div class="container text-left">
        <span class="text-muted">enjoy your free WIFI</span>
-       <span><?php echo "extraData:".$extraData.";"; ?> </span>
+       <span><?php echo "location:".$location.";"."username:".$username.";"; ?> </span>
      </div>
    </footer>
 
@@ -144,10 +148,12 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+	<script src="js/main1.js"></script>
   <script>
   var  canNav = false;
   var  firstClick  = true;
+  var adId ;
+  var locationid ;
   function adsTimer() {
    setTimeout(function(){ canNav = true;}, 5000);
    var counter = 5;
@@ -167,17 +173,13 @@
     if(canNav){
 
     }else if ($(this).attr('id')=="ads-link") {
-     <?php if($extraData!=''): ?>
-     if(firstClick) {
-       clickInfo = '{"ad_id":0 ,"client_id":'+<?php echo $extraData ?>+'}';
-  /**     var extraData = {
-        "extra-data": {
-            'user_id' : 5,
-            'client_id':0
-        }
+<?php if(($mobile!='') && ($location!='') ): ?>
 
-} */
+     if(firstClick) {
+       clickInfo = '{"ad_id":"'+adId+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'"}';
+
        $.ajax({
+
            type: "POST",
            url: "http://185.84.236.39:3000/api/clicks",
            cache: false,
@@ -198,21 +200,32 @@
            }
        });
      }
-<?php endif; ?>
+     <?php endif; ?>
     } else {
       e.preventDefault();
       return false;
     }
   });
   $( document ).ready(function() {
+     var adsLocId = <?php echo json_encode($location)?>;
+     var adsMobile = <?php echo json_encode($mobile)?>;
+      if((adsLocId != '') && (adsMobile != '') ) {
+        adslink = "http://185.84.236.39:3000/api/ADs/RandomAD?limit=1&mobile="+adsMobile+"&location_id="+adsLocId+"&client_mobile="+adsMobile;
+        console.log(adslink);
+
+      } else {
+        adslink = "http://185.84.236.39:3000/api/ADs/RandomAD?limit=1";
+        console.log(adslink);
+      }
     $.ajax({
         type: "GET",
-        url: "http://185.84.236.39:3000/api/ADs/RandomAD?limit=1",
+        url: adslink,
         cache: false,
         statusCode: {
           200: function (response) {
             response = JSON.stringify(response[0]);
             response = JSON.parse(response);
+            adId = response.id;
             if(response.type == 'video') {
             var video = $('<video />', {
             src: response.media_link,
@@ -248,7 +261,7 @@
               $("#ads-link").prop("href", response.link);
               adsTimer();
             } else {
-              $('.modal-body').text('Something went wrong, please try again later');
+              $('.modal-body').text('Something went wrong, please try again later 22');
               $('#errorModal').modal('show');
             }
          }
@@ -256,7 +269,7 @@
         success: function(html) {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
-          $('.modal-body').text('Something went wrong, please try again later');
+          $('.modal-body').text('Something went wrong, please try again later 33');
           $('#errorModal').modal('show');
         },
         beforeSend: function() {

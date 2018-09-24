@@ -86,7 +86,7 @@
 				Free trial available, <a href="<?php echo $linkloginonly; ?>?dst=<?php echo $linkorigesc; ?>&amp;username=T-<?php echo $macesc; ?>">click here</a>.
 			</div>
 		<?php endif; ?>
-		
+
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<form id="login100-form"  class="login100-form validate-form " action="<?php echo $linkloginonly; ?>" role="form" method="post">
 				<span class="login100-form-title p-b-37">
@@ -131,11 +131,12 @@
 					<span class="txt1">
 						<a id="verify100-form-show" href="#">التحقق من الحساب</a>
 					</span>
-          <div class="txt1">
-            v0.9.2
-          </div>
-					
+
+
 				</div>
+        <div class="txt1 col-md-12 text-left">
+          v0.9.5
+        </div>
 			</form>
 			<form id="forget100-form"  class="forget100-form validate-form ">
 				<div  class="login100-form-backArrow">
@@ -205,12 +206,8 @@
 				<span class="signup100-form-title p-b-37">
 					حساب جديد
 				</span>
-				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال الاسم">
-					<input class="input100" type="text" name="username" placeholder="الاسم">
-					<span class="focus-input100"></span>
-				</div>
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "يرجى إدخال البريد الإلكتروني و التأكد من كتابته بشكل صحيح">
-					<input class="input100" type="text" name="email" placeholder="البريد الإلكتروني">
+				<div class="wrap-input100 m-b-20" data-validate="يرجى إدخال الاسم">
+					<input class="input100" type="text" name="username" placeholder="الاسم(اختياري)">
 					<span class="focus-input100"></span>
 				</div>
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "يرجى إدخال كلمة السر">
@@ -286,7 +283,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js?v=1.2"></script>
+	<script src="js/main1.js?v=1.2"></script>
 
 	<?php if($chapid) : ?>
 	<script type="text/javascript" src="js/md5.js"></script>
