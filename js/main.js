@@ -418,10 +418,14 @@
                   401: function (response) {
                     $('.modal-body').text('تأكد من اسم المستخدم و كلمة السر' + JSON.stringify(apiLoginData));
                     $('#errorModal').modal('show');
-                 }
+                   },
+                   400: function (response) {
+                    $('.modal-body').text('mobile and password are required' + JSON.stringify(apiLoginData) + response.error.message);
+                    $('#errorModal').modal('show');
+                   }
                   },
                   error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    $('.modal-body').text('Something went wrong, please try again later 21' + JSON.stringify(apiLoginData));
+                    $('.modal-body').text('Something went wrong, please try again later 21' + JSON.stringify(apiLoginData) + textStatus + errorThrown);
                     $('#errorModal').modal('show');
                   },
                   beforeSend: function() {
