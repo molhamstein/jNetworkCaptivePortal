@@ -251,7 +251,7 @@
               $("#ads-link").prop("href", response.link);
               adsTimer();
             } else {
-              $('.modal-body').text('Something went wrong, please try again later');
+              $('.modal-body').text('Something went wrong, please try again later 22');
               $('#errorModal').modal('show');
             }
          }
@@ -259,7 +259,7 @@
         success: function(html) {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
-          $('.modal-body').text('Something went wrong, please try again later');
+          $('.modal-body').text('Something went wrong, please try again later 33');
           $('#errorModal').modal('show');
         },
         beforeSend: function() {

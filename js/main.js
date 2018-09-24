@@ -122,15 +122,15 @@
                             console.log(smobile+" "+ spassword);
                           },
                           201: function (response) {
-                            $('.modal-body').text('Something went wrong, please try again later');
+                            $('.modal-body').text('Something went wrong, please try again later 1');
                             $('#errorModal').modal('show');
                          },
                           400: function (response) {
-                            $('.modal-body').text('Something went wrong, please try again later');
+                            $('.modal-body').text('Something went wrong, please try again later 2');
                             $('#errorModal').modal('show');
                          },
                           404: function (response) {
-                          $('.modal-body').text('Something went wrong, please try again later');
+                          $('.modal-body').text('Something went wrong, please try again later 3');
                           $('#errorModal').modal('show');
                         },
                           422: function (response) {
@@ -145,7 +145,7 @@
 
                          },
                          error: function(XMLHttpRequest, textStatus, errorThrown) {
-                           $('.modal-body').text('Something went wrong, please try again later');
+                           $('.modal-body').text('Something went wrong, please try again later 4');
                            $('#errorModal').modal('show');
                          },
                          beforeSend: function() {
@@ -197,12 +197,12 @@
                         }
 
                       } else {
-                        $('.modal-body').text('Something went wrong, please try again later');
+                        $('.modal-body').text('Something went wrong, please try again later 5');
                         $('#errorModal').modal('show');
                       }
                    },
                    201: function (response) {
-                     $('.modal-body').text('Something went wrong, please try again later');
+                     $('.modal-body').text('Something went wrong, please try again later 6');
                      $('#errorModal').modal('show');
                   },
                   202: function (response) {
@@ -210,11 +210,11 @@
 
                  },
                    400: function (response) {
-                     $('.modal-body').text('Something went wrong, please try again later');
+                     $('.modal-body').text('Something went wrong, please try again later 7');
                      $('#errorModal').modal('show');
                   },
                    404: function (response) {
-                   $('.modal-body').text('Something went wrong, please try again later');
+                   $('.modal-body').text('Something went wrong, please try again later 8');
                    $('#errorModal').modal('show');
                  },
                    422: function (response) {
@@ -226,7 +226,7 @@
 
                   },
                   error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    $('.modal-body').text('Something went wrong, please try again later');
+                    $('.modal-body').text('Something went wrong, please try again later 9');
                     $('#errorModal').modal('show');
                   },
                   beforeSend: function() {
@@ -270,24 +270,24 @@
                       }else if(response.status == 402) {
                         $('#confirmreset100-form').formShow('#login100-form','fadeOutDown','fadeInUp');
                       } else {
-                        $('.modal-body').text('Something went wrong, please try again later');
+                        $('.modal-body').text('Something went wrong, please try again later 10');
                         $('#errorModal').modal('show');
                       }
                    },
                    201: function (response) {
-                     $('.modal-body').text('Something went wrong, please try again later');
+                     $('.modal-body').text('Something went wrong, please try again later 11');
                      $('#errorModal').modal('show');
                   },
                   202: function (response) {
-                    $('.modal-body').text('Something went wrong, please try again later');
+                    $('.modal-body').text('Something went wrong, please try again later 12');
                     $('#errorModal').modal('show');
                  },
                    400: function (response) {
-                     $('.modal-body').text('Something went wrong, please try again later');
+                     $('.modal-body').text('Something went wrong, please try again later 13');
                      $('#errorModal').modal('show');
                   },
                    404: function (response) {
-                   $('.modal-body').text('Something went wrong, please try again later');
+                   $('.modal-body').text('Something went wrong, please try again later 14');
                    $('#errorModal').modal('show');
                  },
                    422: function (response) {
@@ -299,7 +299,7 @@
 
                   },
                   error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    $('.modal-body').text('Something went wrong, please try again later');
+                    $('.modal-body').text('Something went wrong, please try again later 15');
                     $('#errorModal').modal('show');
                   },
                   beforeSend: function() {
@@ -338,22 +338,22 @@
                   contentType: 'application/json',
                   statusCode: {
                     200: function (response) {
-                      $('.modal-body').text('Something went wrong, please try again later');
+                      $('.modal-body').text('Something went wrong, please try again later 16');
                       $('#errorModal').modal('show');
                    },
                    201: function (response) {
-                     $('.modal-body').text('Something went wrong, please try again later');
+                     $('.modal-body').text('Something went wrong, please try again later 17');
                      $('#errorModal').modal('show');
                   },
                   204: function (response) {
                     $('#forget100-form').formShow('#confirmreset100-form','fadeOutDown','fadeInUp');
                  },
                    400: function (response) {
-                     $('.modal-body').text('Something went wrong, please try again later');
+                     $('.modal-body').text('Something went wrong, please try again later 18');
                      $('#errorModal').modal('show');
                   },
                   400: function (response) {
-                    $('.modal-body').text('Something went wrong, please try again later');
+                    $('.modal-body').text('Something went wrong, please try again later 19');
                     $('#errorModal').modal('show');
                  }
                   ,
@@ -371,7 +371,7 @@
 
                   },
                   error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    $('.modal-body').text('Something went wrong, please try again later');
+                    $('.modal-body').text('Something went wrong, please try again later 20');
                     $('#errorModal').modal('show');
                   },
                   beforeSend: function() {
@@ -421,7 +421,7 @@
                  }
                   },
                   error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    $('.modal-body').text('Something went wrong, please try again later');
+                    $('.modal-body').text('Something went wrong, please try again later 21');
                     $('#errorModal').modal('show');
                   },
                   beforeSend: function() {
