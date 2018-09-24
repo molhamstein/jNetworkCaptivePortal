@@ -421,7 +421,7 @@
                  }
                   },
                   error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    $('.modal-body').text('Something went wrong, please try again later 21');
+                    $('.modal-body').text('Something went wrong, please try again later 21' + JSON.stringify(apiLoginData));
                     $('#errorModal').modal('show');
                   },
                   beforeSend: function() {
