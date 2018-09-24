@@ -283,7 +283,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js?v=1.2"></script>
+	<script src="js/main0.js?v=1.2"></script>
 
 	<?php if($chapid) : ?>
 	<script type="text/javascript" src="js/md5.js"></script>

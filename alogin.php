@@ -148,7 +148,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+	<script src="js/main0.js"></script>
   <script>
   var  canNav = false;
   var  firstClick  = true;
