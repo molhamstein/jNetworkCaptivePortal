@@ -176,7 +176,7 @@
 <?php if(($mobile!='') && ($location!='') ): ?>
 
      if(firstClick) {
-       clickInfo = '{"ad_id":"'+adId+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location-id":"'+<?php echo json_encode($location); ?>+'"}';
+       clickInfo = '{"ad_id":"'+adId+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'"}';
 
        $.ajax({
 
@@ -207,9 +207,19 @@
     }
   });
   $( document ).ready(function() {
+     var adsLocId = <?php echo json_encode($location)?>;
+     var adsMobile = <?php echo json_encode($mobile)?>;
+      if((adsLocId != '') && (adsMobile != '') ) {
+        adslink = "http://185.84.236.39:3000/api/ADs/RandomAD?limit=1&mobile="+adsMobile+"&location_id="+adsLocId+"&client_mobile="+adsMobile;
+        console.log(adslink);
+
+      } else {
+        adslink = "http://185.84.236.39:3000/api/ADs/RandomAD?limit=1";
+        console.log(adslink);
+      }
     $.ajax({
         type: "GET",
-        url: "http://185.84.236.39:3000/api/ADs/RandomAD?limit=1",
+        url: adslink,
         cache: false,
         statusCode: {
           200: function (response) {
