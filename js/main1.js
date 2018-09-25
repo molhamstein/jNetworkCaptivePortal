@@ -410,6 +410,7 @@ $( document ).ready(function() {
                 url: "http://185.84.236.39:3000/api/clients/login",
                 data:JSON.stringify(apiLoginData),
                 cache: false,
+                async: true,
                 contentType: 'application/json',
                 statusCode: {
                   200: function (response) {
