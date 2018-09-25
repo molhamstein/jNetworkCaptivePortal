@@ -1,5 +1,4 @@
-
-(function ($) {
+$( document ).ready(function() {
   var smobile = "";
   var spassword = "";
   /*==================================================================
@@ -514,7 +513,4 @@
       $(thisAlert).removeClass('alert-validate');
       $(thisAlert).find('.btn-hide-validate').remove();
   }
-
-
-
-})(jQuery);
+});
