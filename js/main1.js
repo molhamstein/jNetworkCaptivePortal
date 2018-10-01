@@ -407,7 +407,7 @@ $( document ).ready(function() {
             apiLoginData.password = data.password
             $.ajax({
                 type: "POST",
-                url: "api/clients/login",
+                url: "/login",
                 data:JSON.stringify(apiLoginData),
                 cache: false,
                 async: true,
