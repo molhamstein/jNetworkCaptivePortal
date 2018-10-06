@@ -110,7 +110,7 @@ $( document ).ready(function() {
 
                    $.ajax({
                        type: "POST",
-                       url: "http://185.84.236.39:3000/api/clients",
+                       url: "/api/clients",
                        cache: false,
                        contentType: 'application/json',
                        data: JSON.stringify(data),
@@ -178,7 +178,7 @@ $( document ).ready(function() {
             var data = "mobile="+mobileNum+"&"+"code="+code;
             $.ajax({
                 type: "GET",
-                url: "http://185.84.236.39:3000/api/clients/confirm2",
+                url: "/api/clients/confirm2",
                 data:data,
                 cache: false,
                 contentType: 'application/json',
@@ -259,7 +259,7 @@ $( document ).ready(function() {
 
             $.ajax({
                 type: "POST",
-                url: "http://185.84.236.39:3000/api/clients/confirmreset",
+                url: "/api/clients/confirmreset",
                 data:JSON.stringify(data),
                 cache: false,
                 contentType: 'application/json',
@@ -333,7 +333,7 @@ $( document ).ready(function() {
             data.mobile = encodeURIComponent(data.mobile);
             $.ajax({
                 type: "POST",
-                url: "http://185.84.236.39:3000/api/clients/reset",
+                url: "/api/clients/reset",
                 data:JSON.stringify(data),
                 cache: false,
                 contentType: 'application/json',
