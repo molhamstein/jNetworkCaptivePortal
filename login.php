@@ -129,13 +129,13 @@
 				</div>
 				<div class="text-center p-t-5 p-b-5">
 					<span class="txt1">
-						<a id="verify100-form-show" href="#">التحقق من الحساب</a>
+						<a id="verify100-form-show" href="#">تفعيل الحساب</a>
 					</span>
 
 
 				</div>
         <div class="txt1 col-md-12 text-left">
-          v0.9.7
+          v0.9.8
         </div>
 			</form>
 			<form id="forget100-form"  class="forget100-form validate-form ">
@@ -185,7 +185,7 @@
           يرجى إدخال كلمة المرور الجديدة
         </span>
         <div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال رمز التحقق">
-          <input class="input100" type="text" name="code" placeholder="رمز التحقق">
+          <input class="input100" type="text" name="ncode" placeholder="رمز التحقق">
           <span class="focus-input100"></span>
         </div>
         <div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال كلمة المرور">
@@ -218,10 +218,11 @@
 					<input class="input100" type="text" name="mobile" placeholder="رقم الموبايل">
 					<span class="focus-input100"></span>
 				</div>
-				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال تاريخ الميلاد">
-					<input class="input100" type="text"  name="birthdate"  value="" placeholder="الميلاد">
-					<span class="focus-input100"></span>
-				</div>
+        <div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال تاريخ الميلاد">
+          <select class="form-control select-input100" name="birthdate" id="birthdateList" >
+                <option value="" disabled selected>يرجى إدخال تاريخ الميلاد </option>
+          </select>
+        </div>
 				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى اختيار الجنس">
 			 <select class="form-control select-input100" name="gender" id="sel1" >
 				     <option value="" disabled selected>الجنس</option>
@@ -283,7 +284,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main1.js?v=1.5"></script>
+	<script src="js/main1.js?v=1.6"></script>
 
 	<?php if($chapid) : ?>
 	<script type="text/javascript" src="js/md5.js"></script>

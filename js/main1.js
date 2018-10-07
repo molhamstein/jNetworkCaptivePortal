@@ -256,7 +256,7 @@ $( document ).ready(function() {
           }
           if(check){
             var data = $('#confirmreset100-form').serializeJSON();
-
+            data.code=data.ncode;
             $.ajax({
                 type: "POST",
                 url: "/api/clients/confirmreset",
@@ -442,8 +442,11 @@ $( document ).ready(function() {
             });
           }
       });
-
-
+      /*==================================================================
+      [ Append birthdate List  ]*/
+      for (var i = 1930; i <= 2012; i++) {
+        $("#birthdateList").append("<option value='1-1-"+i+"'>"+i+"</option>");
+      }
 
   /*==================================================================
   [ Validate ]*/
