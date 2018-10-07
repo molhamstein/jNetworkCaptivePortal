@@ -40,8 +40,14 @@ $( document ).ready(function() {
   [ Hide Forget Form And Show verify Form ]*/
   $( "#verify100-form-show" ).click(function(evt) {
     evt.preventDefault();
+    document.location.hash = 'verify';
     $(this).formShow('#verify100-form','fadeOutLeft','fadeInRight');
   });
+  /*==================================================================
+  [ Hide Forget Form And Show verify Form ]*/
+if(window.location.hash) {
+$('#login100-form').formShow('#verify100-form','fadeOutLeft','fadeInRight');
+}
   /*==================================================================
   [ Hide verify Form And Show reset Form ]*/
   $( "#reset100-form-show" ).click(function(evt) {
@@ -117,6 +123,7 @@ $( document ).ready(function() {
                        statusCode: {
                          200: function (response) {
                           $('#signup100-form').formShow('#verify100-form','fadeOutDown','fadeInUp');
+                          document.location.hash = 'verify';
                           $('#verify100-form input[name=mobile]').val(data.mobile);
                           smobile = data.mobile;
                           spassword = data.password;
