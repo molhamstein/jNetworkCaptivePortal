@@ -74,6 +74,26 @@
 
   </div>
 </div>
+<div dir="rtl" id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">هذا الحساب مسجل مسبقاً</h4>
+      </div>
+      <div class="modal-body">
+        يمكنك تسجيل الدخول <a id="alreadySign" href="#">من هنا</a> أو تفعيل حسابك إذا لم تكن قد فعلتها مسبقاً <a href="#" id="alreadyActive">من هنا</a>
+        <p></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 	<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 
 		<?php if($error) : ?>
@@ -88,6 +108,27 @@
 		<?php endif; ?>
 
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+      <form id="main100-form"  class="main100-form validate-form " action="<?php echo $linkloginonly; ?>" role="form" method="post">
+				<span class="main100-form-title p-b-37">
+					<h3>Welcome To Captive Portal Network !</h3>
+				</span>
+
+				<div class="container-main100-form-btn">
+					<button id="mainlogin100-form-btn" class="main100-form-btn">
+						تسجيل الدخول
+					</button>
+				</div>
+        <div class="container-main100-form-btn">
+					<button id="mainSignUp100-form-btn" class="main100-form-btn">
+						إنشاء حساب
+					</button>
+				</div>
+        <div class="container-main100-form-btn">
+          <button id="mainactive100-form-btn" class="main100-form-btn">
+            تفعيل حساب
+          </button>
+        </div>
+			</form>
 			<form id="login100-form"  class="login100-form validate-form " action="<?php echo $linkloginonly; ?>" role="form" method="post">
 				<span class="login100-form-title p-b-37">
 					تسجيل الدخول
