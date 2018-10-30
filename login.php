@@ -163,6 +163,7 @@
 					 إنشاء حساب
 					</button>
 				</div>
+
 				<div class="text-center p-t-20 p-b-20">
 					<span class="txt1">
 						<a id="forget100-form-show" href="#">نسيت كلمة المرور ؟</a>
@@ -172,11 +173,14 @@
 					<span class="txt1">
 						<a id="verify100-form-show" href="#">تفعيل الحساب</a>
 					</span>
-
-
 				</div>
+        <div class="text-center p-t-5 p-b-5">
+          <span class="txt1">
+            <a id="main100-form-show" href="#">العودة للصفحة الرئيسية</a>
+          </span>
+        </div>
         <div class="txt1 col-md-12 text-left">
-          v0.9.8
+          v0.9.9
         </div>
 			</form>
 			<form id="forget100-form"  class="forget100-form validate-form ">
@@ -291,7 +295,7 @@
 	 <option>الفنون و التصميم</option>
 	 <option>الحدمات القانونية</option>
 	 <option>المهن اليدويه و الحرفية</option>
-
+	 <option>طالب</option>
  </select>
 				</div>
         <input name="realm" value="reg" type="hidden" >

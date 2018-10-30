@@ -59,6 +59,10 @@ $(document).ready(function() {
     document.location.hash = 'verify';
     $(this).formShow('#verify100-form', 'fadeOutLeft', 'fadeInRight');
   });
+  $("#main100-form-show").click(function(evt) {
+    evt.preventDefault();
+    $(this).formShow('#main100-form', 'fadeOutLeft', 'fadeInRight');
+  });
   /*==================================================================
   [ Hide Forget Form And Show verify Form ]*/
   if (window.location.hash) {
