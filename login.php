@@ -201,7 +201,7 @@
           </span>
         </div>
         <div class="txt1 col-md-12 text-left">
-          v0.9.9
+          v1.0.1
         </div>
 			</form>
 			<form id="forget100-form"  class="forget100-form validate-form ">
@@ -350,7 +350,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main1.js?v=1.6"></script>
+	<script src="js/main2.js?v=1.6"></script>
 
 	<?php if($chapid) : ?>
 	<script type="text/javascript" src="js/md5.js"></script>
