@@ -116,6 +116,21 @@ $(document).ready(function() {
     });
     return json;
   };
+
+
+
+
+  /***********************************************************************/
+  $('#notActiveSend').click(function(evt) {
+    evt.preventDefault();
+    $('#myModal2').modal('hide');
+    $('#login100-form').formShow('#verify100-form', 'fadeOutDown', 'fadeInUp');
+  });
+  $('#notActiveEnter').click(function(evt) {
+    evt.preventDefault();
+    $('#myModal2').modal('hide');
+    $('#login100-form').formShow('#verify100-form', 'fadeOutDown', 'fadeInUp');
+  });
   /***************************************************************************/
 
 
@@ -456,16 +471,19 @@ $(document).ready(function() {
           200: function(response) {
             $('#extra-data').val(response.userId);
             $('#login100-form').submit();
+          },
+          401: function(response) {
+            $('.modal-body').text('تأكد من اسم المستخدم و كلمة السر' + JSON.stringify(apiLoginData));
+            $('#errorModal').modal('show');
+          },
+          400: function(response) {
+            $('.modal-body').text('mobile and password are required' + JSON.stringify(apiLoginData) + response.error.message);
+            $('#errorModal').modal('show');
+          },
+          601: function(response) {
+            $('.modal-body').text('mobile and password are required' + JSON.stringify(apiLoginData) + response.error.message);
+            $('#errorModal').modal('show');
           }
-          //  ,
-          // 401: function (response) {
-          //   $('.modal-body').text('تأكد من اسم المستخدم و كلمة السر' + JSON.stringify(apiLoginData));
-          //   $('#errorModal').modal('show');
-          //  },
-          //  400: function (response) {
-          //   $('.modal-body').text('mobile and password are required' + JSON.stringify(apiLoginData) + response.error.message);
-          //   $('#errorModal').modal('show');
-          //  }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
           $('.modal-body').text('Something went wrong, please try again later 21' + JSON.stringify(apiLoginData) + XMLHttpRequest.responseText);
