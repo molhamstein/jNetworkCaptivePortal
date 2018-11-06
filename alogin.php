@@ -148,11 +148,12 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main2.js"></script>
+	<script src="js/main3.js"></script>
   <script>
   var  canNav = false;
   var  firstClick  = true;
   var adId ;
+  var campaignId ;
   var locationid ;
   function adsTimer() {
    setTimeout(function(){ canNav = true;}, 5000);
@@ -176,7 +177,7 @@
 <?php if(($mobile!='') && ($location!='') ): ?>
 
      if(firstClick) {
-       clickInfo = '{"ad_id":"'+adId+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'"}';
+       clickInfo = '{"ad_id":"'+adId+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'","campaign_id":"'+campaignId}';
 
        $.ajax({
 
@@ -226,6 +227,7 @@
             response = JSON.stringify(response[0]);
             response = JSON.parse(response);
             adId = response.id;
+            campaignId = response.campaign_id
             if(response.type == 'video') {
             var video = $('<video />', {
             src: response.media_link,
