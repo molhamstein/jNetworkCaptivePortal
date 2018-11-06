@@ -210,11 +210,11 @@
      var adsLocId = <?php echo json_encode($location)?>;
      var adsMobile = <?php echo json_encode($mobile)?>;
       if((adsLocId != '') && (adsMobile != '') ) {
-        adslink = "http://185.84.236.39:3000/api/ADs/campaign_ad_getAdsByCriteria?limit=1&mobile="+adsMobile+"&location_id="+adsLocId+"&client_mobile="+adsMobile;
+        adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds?limit=1&mobile="+adsMobile+"&location_id="+adsLocId+"&client_mobile="+adsMobile;
         console.log(adslink);
 
       } else {
-        adslink = "http://185.84.236.39:3000/api/ADs/campaign_ad_getAdsByCriteria?limit=1";
+        adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds?limit=1";
         console.log(adslink);
       }
     $.ajax({
