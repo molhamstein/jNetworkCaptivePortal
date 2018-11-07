@@ -27,11 +27,7 @@
     if($_POST['username']) {
       $mobile = $_POST['username'];
     }
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
@@ -176,7 +172,7 @@
 <?php if(($mobile!='') && ($location!='') ): ?>
 
      if(firstClick) {
-       clickInfo = '{"ad_id":"'+adId+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'","campaign_id":"'+campaignId}';
+       clickInfo = '{"ad_id":"'+adId+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'","campaign_id":"'+campaignId+'}';
 
        $.ajax({
 
