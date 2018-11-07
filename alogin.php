@@ -58,8 +58,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.3">
+	<link rel="stylesheet" type="text/css" href="css/main.css?v=1.3">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -105,7 +105,7 @@
 </div>
 
     <div class="card-body text-center">
-      <h5 class="card-title">  تم تسجيل دخولك بنجاح</h5>
+      <h5 class="card-title">تم تسجيل دخولك بنجاح</h5>
 
     </div>
     <?php if($linkstatus):?>
@@ -127,7 +127,6 @@
     <footer class="footer-alogin p-t-20">
      <div class="container text-left">
        <span class="text-muted">enjoy your free WIFI</span>
-       <span><?php echo "location:".$location.";"."username:".$username.";"; ?> </span>
      </div>
    </footer>
 

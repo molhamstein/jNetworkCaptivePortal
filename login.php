@@ -48,8 +48,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.2">
-	<link rel="stylesheet" type="text/css" href="css/main.css?v=1.2">
+	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.3">
+	<link rel="stylesheet" type="text/css" href="css/main.css?v=1.3">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -201,7 +201,7 @@
           </span>
         </div>
         <div class="txt1 col-md-12 text-left">
-          v1.0.1
+          v1.0.2
         </div>
 			</form>
 			<form id="forget100-form"  class="forget100-form validate-form ">
