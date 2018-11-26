@@ -59,7 +59,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/main4.css">
 <!--===============================================================================================-->
 </head>
 
@@ -147,10 +147,10 @@
      var adsLocId = <?php echo json_encode($location)?>;
      var adsMobile = <?php echo json_encode($mobile)?>;
       if((adsLocId != '') && (adsMobile != '') ) {
-        adslink = "http://185.84.236.39:3000/api/ADs/campaign_ad_getAdsByCriteria?limit=1";
+        adslink = "http://185.84.236.39:3000/api/ADs/campaign_ad_getAdsByCriteria?limit=1&mobile="+adsMobile+"&location_id="+adsLocId+"&client_mobile="+adsMobile;
         console.log(adslink);
       } else {
-        adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds?mobile=00963933074900&limit=1&location_id=4";
+        adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds";
         console.log(adslink);
       }
     $.ajax({

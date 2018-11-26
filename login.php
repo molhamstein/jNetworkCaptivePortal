@@ -48,8 +48,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.3">
-	<link rel="stylesheet" type="text/css" href="css/main.css?v=1.3">
+	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.4">
+	<link rel="stylesheet" type="text/css" href="css/main.css?v=1.4">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -350,7 +350,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main3.js?v=1.6"></script>
+	<script src="js/main4.js?v=1.7"></script>
 
 	<?php if($chapid) : ?>
 	<script type="text/javascript" src="js/md5.js"></script>
