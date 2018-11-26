@@ -62,18 +62,23 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
+
 <body>
 
 
 
 <div class="container-gr">
 <div class="full-screen-ads">
-  <img  src="images/1.jpg" />
+  <a id="ads-link" target="_blank" href="">
+  <img class="hidden" id="ads-image" src="" />
+  <div class="hidden" id="ads-video">
+  </div>
+</a>
 </div>
 </div>
-<div class="loader">
+<div id="loader" class="loader">
   <div class="loader-text">
-    Authintacting ...
+    جاري التحقق
   </div>
   <div class="loader-image">
     <svg width="65px"  height="65px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: none;"><circle cx="50" cy="50" fill="none" ng-attr-stroke="{{config.color}}" ng-attr-stroke-width="{{config.width}}" ng-attr-r="{{config.radius}}" ng-attr-stroke-dasharray="{{config.dasharray}}" stroke="#ffffff" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" transform="rotate(282 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>
@@ -81,8 +86,8 @@
 
 
 </div>
-<div class="pulse-btn">
-<button class="animated pulse">Follow Us</button>
+<div id="link-btn-div" class="pulse-btn hidden">
+<a  id="link-btn" >Follow Us</a>
 </div>
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -100,6 +105,127 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main1.js"></script>
+  <script>
+  $( document ).ready(function() {
+    var  firstClick  = true;
+    var is_mobile = false;
+    if( $('#mobile-check').css('display')=='none') {
+       is_mobile = true;
+   }
+    $('a').click( function(e) {
+     if($(this).attr('id')=="ads-link" || $(this).attr('id')=="link-btn") {
+  <?php if(($mobile!='') && ($location!='') ): ?>
 
+       if(firstClick) {
+         clickInfo = '{"ad_id":"'+adId+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'"}';
+         $.ajax({
+             type: "POST",
+             url: "http://185.84.236.39:3000/api/clicks",
+             cache: false,
+             data:JSON.parse(clickInfo),
+             statusCode: {
+               200: function (response) {
+              }
+            },
+             success: function(html) {
+               firstClick = false;
+             },
+             error: function(XMLHttpRequest, textStatus, errorThrown) {
+             },
+             beforeSend: function() {
+             },
+             complete: function() {
+             }
+         });
+       }
+       <?php endif; ?>
+      } else {
+        e.preventDefault();
+        return false;
+      }
+    });
+     var adsLocId = <?php echo json_encode($location)?>;
+     var adsMobile = <?php echo json_encode($mobile)?>;
+      if((adsLocId != '') && (adsMobile != '') ) {
+        adslink = "http://185.84.236.39:3000/api/ADs/campaign_ad_getAdsByCriteria?limit=1&mobile="+adsMobile+"&location_id="+adsLocId+"&client_mobile="+adsMobile;
+        console.log(adslink);
+      } else {
+        adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds?mobile=00963933074900&limit=1&location_id=4";
+        console.log(adslink);
+      }
+    $.ajax({
+        type: "GET",
+        url: adslink,
+        cache: false,
+        statusCode: {
+          200: function (response) {
+            console.log(response);
+            response = JSON.stringify(response[0]);
+            response = JSON.parse(response);
+            adId = response.id;
+            if(response.type == 'video') {
+            var video = $('<video />', {
+            src: response.media_link,
+            type: 'video/mp4',
+            id:'videoOfAds',
+            controls: false,
+            autoplay:true
+            });
+              $('#ads-video').append(video);
+              $("#ads-link").prop("href", response.link);
+              var firstRun=true;
+              $("#videoOfAds").on("play", function () {
+                if(firstRun) {
+                }
+                $('#ads-video').one('load',function() {
+                $('#ads-video').removeClass('hidden');
+                $("#link-btn-div").removeClass('hidden');
+                $("#link-btn").prop("href", response.link);
+                $('#loader').hide();
+                });
+              //********Must Get Video Not Cached !*********/
+              });
+            } else if (response.type == 'image') {
+              if (is_mobile == true) {
+                if(response.portrait_link) {
+                  $('#ads-image').attr('src',response.portrait_thumb_link);
+                } else {
+                    $('#ads-image').attr('src',response.thumb_link);
+                }
+              } else {
+                $('#ads-image').attr('src',response.thumb_link);
+              }
+              $("#ads-link").prop("href", response.link);
+              $("#ads-btn").prop("href", response.link);
+              $('#ads-image').one('load',function() {
+              $('#ads-image').removeClass('hidden');
+              $("#link-btn-div").removeClass('hidden');
+              $("#link-btn").prop("href", response.link);
+              $('#loader').hide();
+              });
+            } else {
+              $('.modal-body').text('Something went wrong, please try again later 22');
+              $('#errorModal').modal('show');
+            }
+         }
+       },
+        success: function(html) {
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+          $('.modal-body').text('Something went wrong, please try again later 33');
+          $('#errorModal').modal('show');
+        },
+        beforeSend: function() {
+
+        },
+        complete: function() {
+
+        }
+    });
+  });
+  </script>
+  <div id="mobile-check">
+
+  </div>
 </body>
 </html>
