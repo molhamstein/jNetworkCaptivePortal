@@ -1099,5 +1099,6 @@ animation-duration: 3s;
   }
 }
 @media only screen and (max-width: 760px) {
-  #mobile-check { display: none; }
+  #mobile-check { display: none;
+  }
 }
