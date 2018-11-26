@@ -27,11 +27,7 @@
     if($_POST['username']) {
       $mobile = $_POST['username'];
     }
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
@@ -58,8 +54,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.3">
+	<link rel="stylesheet" type="text/css" href="css/main.css?v=1.3">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -105,7 +101,7 @@
 </div>
 
     <div class="card-body text-center">
-      <h5 class="card-title">  تم تسجيل دخولك بنجاح</h5>
+      <h5 class="card-title">تم تسجيل دخولك بنجاح</h5>
 
     </div>
     <?php if($linkstatus):?>
@@ -127,7 +123,6 @@
     <footer class="footer-alogin p-t-20">
      <div class="container text-left">
        <span class="text-muted">enjoy your free WIFI</span>
-       <span><?php echo "location:".$location.";"."username:".$username.";"; ?> </span>
      </div>
    </footer>
 
@@ -148,11 +143,12 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main1.js"></script>
+	<script src="js/main3.js"></script>
   <script>
   var  canNav = false;
   var  firstClick  = true;
   var adId ;
+  var campaignId ;
   var locationid ;
   function adsTimer() {
    setTimeout(function(){ canNav = true;}, 5000);
@@ -176,7 +172,7 @@
 <?php if(($mobile!='') && ($location!='') ): ?>
 
      if(firstClick) {
-       clickInfo = '{"ad_id":"'+adId+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'"}';
+       clickInfo = '{"ad_id":"'+adId+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'","campaign_id":"'+campaignId+'}';
 
        $.ajax({
 
@@ -210,11 +206,11 @@
      var adsLocId = <?php echo json_encode($location)?>;
      var adsMobile = <?php echo json_encode($mobile)?>;
       if((adsLocId != '') && (adsMobile != '') ) {
-        adslink = "http://185.84.236.39:3000/api/ADs/campaign_ad_getAdsByCriteria?limit=1&mobile="+adsMobile+"&location_id="+adsLocId+"&client_mobile="+adsMobile;
+        adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds?limit=1&mobile="+adsMobile+"&location_id="+adsLocId+"&client_mobile="+adsMobile;
         console.log(adslink);
 
       } else {
-        adslink = "http://185.84.236.39:3000/api/ADs/campaign_ad_getAdsByCriteria?limit=1";
+        adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds?limit=1";
         console.log(adslink);
       }
     $.ajax({
@@ -226,6 +222,7 @@
             response = JSON.stringify(response[0]);
             response = JSON.parse(response);
             adId = response.id;
+            campaignId = response.campaign_id
             if(response.type == 'video') {
             var video = $('<video />', {
             src: response.media_link,

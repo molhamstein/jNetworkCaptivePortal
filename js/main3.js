@@ -473,15 +473,15 @@ $(document).ready(function() {
             $('#login100-form').submit();
           },
           401: function(response) {
-            $('.modal-body').text('تأكد من اسم المستخدم و كلمة السر' + JSON.stringify(apiLoginData));
+            $('.modal-body').text('تأكد من اسم المستخدم و كلمة السر' );
             $('#errorModal').modal('show');
           },
           400: function(response) {
-            $('.modal-body').text('mobile and password are required' + JSON.stringify(apiLoginData) + response.error.message);
+            $('.modal-body').text('mobile and password are required' );
             $('#errorModal').modal('show');
           },
           601: function(response) {
-            $('.modal-body').text('mobile and password are required' + JSON.stringify(apiLoginData) + response.error.message);
+            $('.modal-body').text('mobile and password are required' );
             $('#errorModal').modal('show');
           }
         },

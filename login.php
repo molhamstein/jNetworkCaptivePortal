@@ -48,8 +48,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.2">
-	<link rel="stylesheet" type="text/css" href="css/main.css?v=1.2">
+	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.3">
+	<link rel="stylesheet" type="text/css" href="css/main.css?v=1.3">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -131,7 +131,7 @@
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
       <form id="main100-form"  class="main100-form validate-form " action="<?php echo $linkloginonly; ?>" role="form" method="post">
 				<span class="main100-form-title p-b-37">
-					<h3>Welcome To Captive Portal Network !</h3>
+					<h3>قم بالتسجيل للحصول على انترنت مجاني</h3>
 				</span>
 
 				<div class="container-main100-form-btn">
@@ -201,7 +201,7 @@
           </span>
         </div>
         <div class="txt1 col-md-12 text-left">
-          v0.9.9
+          v1.0.3
         </div>
 			</form>
 			<form id="forget100-form"  class="forget100-form validate-form ">
@@ -350,7 +350,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main1.js?v=1.6"></script>
+	<script src="js/main3.js?v=1.6"></script>
 
 	<?php if($chapid) : ?>
 	<script type="text/javascript" src="js/md5.js"></script>

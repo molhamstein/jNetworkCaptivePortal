@@ -48,8 +48,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.3">
+	<link rel="stylesheet" type="text/css" href="css/main.css?v=1.3">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -59,7 +59,7 @@
     <div class="card">
     <img class="card-img-top" src="http://via.placeholder.com/550x150" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">  تم تسجيل الخروج بنجاج</h5>
+      <h5 class="card-title">  تم تسجيل الخروج بنجاح</h5>
 
     </div>
     <ul class="list-group list-group-flush">
@@ -128,7 +128,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main1.js"></script>
+	<script src="js/main3.js"></script>
 
 </body>
 </html>
