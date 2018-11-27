@@ -291,8 +291,8 @@
 				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى اختيار الجنس">
 			 <select class="form-control select-input100" name="gender" id="sel1" >
 				     <option value="" disabled selected>الجنس</option>
-				 <option >ذكر</option>
-<option >أنثى</option>
+				 <option value="male" >ذكر</option>
+         <option value="female" >أنثى</option>
  </select>
 				</div>
 				<div class="wrap-input100 validate-input m-b-20"  data-validate="يرجى اختيار مهنة من القائمة">

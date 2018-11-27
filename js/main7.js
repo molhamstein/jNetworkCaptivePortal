@@ -194,7 +194,7 @@ $(document).ready(function() {
           },
           622: function(response) {
             $('#mymodal').modal('show');
-          },
+          }
         },
         success: function(html) {
 
@@ -240,9 +240,7 @@ $(document).ready(function() {
         contentType: 'application/json',
         statusCode: {
           200: function(response) {
-            if (response.statusCode == '601') {
-              $('#myModal2').modal('show');
-            } else if (response.status == 402) {
+              if (response.status == 402) {
               $('#login100-form input[name=username]').val(smobile);
               $('#login100-form input[name=password]').val(spassword);
               if (smobile && spassword != '') {
@@ -269,6 +267,9 @@ $(document).ready(function() {
             $('.modal-body').text('Something went wrong, please try again later 7');
             $('#errorModal').modal('show');
           },
+          401:function(response) {
+            $('#myModal2').modal('show');
+          },
           404: function(response) {
             $('.modal-body').text('Something went wrong, please try again later 8');
             $('#errorModal').modal('show');
@@ -277,6 +278,9 @@ $(document).ready(function() {
             $('.modal-body').text(response.responseJSON.error.message);
             $('#errorModal').modal('show');
           },
+          622: function(response) {
+            $('#myModal').modal('show');
+          }
         },
         success: function(html) {
 
