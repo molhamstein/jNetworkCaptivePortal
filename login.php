@@ -76,7 +76,6 @@
 </div>
 <div dir="rtl" id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -350,7 +349,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main6.js?v=1.6"></script>
+	<script src="js/main7.js?v=1.7"></script>
 
 	<?php if($chapid) : ?>
 	<script type="text/javascript" src="js/md5.js"></script>

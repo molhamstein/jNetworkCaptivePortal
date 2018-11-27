@@ -109,7 +109,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main6.js"></script>
+	<script src="js/main7.js"></script>
   <script>
   $( document ).ready(function() {
     var  firstClick  = true;

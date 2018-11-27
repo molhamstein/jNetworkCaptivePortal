@@ -193,7 +193,7 @@ $(document).ready(function() {
             $('#errorModal').modal('show');
           },
           622: function(response) {
-            $('#myModal').modal('show');
+            $('#mymodal').modal('show');
           },
         },
         success: function(html) {
@@ -241,8 +241,7 @@ $(document).ready(function() {
         statusCode: {
           200: function(response) {
             if (response.statusCode == '601') {
-              $('.modal-body').text('تأكد من رقم الهاتف و الكود !');
-              $('#errorModal').modal('show');
+              $('#myModal2').modal('show');
             } else if (response.status == 402) {
               $('#login100-form input[name=username]').val(smobile);
               $('#login100-form input[name=password]').val(spassword);
