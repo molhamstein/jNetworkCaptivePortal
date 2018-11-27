@@ -193,7 +193,7 @@ $(document).ready(function() {
             $('#errorModal').modal('show');
           },
           622: function(response) {
-            $('#mymodal').modal('show');
+            $('#myModal').modal('show');
           }
         },
         success: function(html) {
