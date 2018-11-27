@@ -177,19 +177,19 @@ $(document).ready(function() {
             console.log(smobile + " " + spassword);
           },
           201: function(response) {
-            $('.modal-body').text('Something went wrong, please try again later 1');
+            $('#errorModal .modal-body').text('Something went wrong, please try again later 1');
             $('#errorModal').modal('show');
           },
           400: function(response) {
-            $('.modal-body').text('Something went wrong, please try again later 2');
+            $('#errorModal .modal-body').text('Something went wrong, please try again later 2');
             $('#errorModal').modal('show');
           },
           404: function(response) {
-            $('.modal-body').text('Something went wrong, please try again later 3');
+            $('#errorModal .modal-body').text('Something went wrong, please try again later 3');
             $('#errorModal').modal('show');
           },
           422: function(response) {
-            $('.modal-body').text(response.responseJSON.error.message);
+            $('#errorModal .modal-body').text(response.responseJSON.error.message);
             $('#errorModal').modal('show');
           },
           622: function(response) {
@@ -251,12 +251,12 @@ $(document).ready(function() {
               }
 
             } else {
-              $('.modal-body').text('Something went wrong, please try again later 5');
+              $('#errorModal .modal-body').text('Something went wrong, please try again later 5');
               $('#errorModal').modal('show');
             }
           },
           201: function(response) {
-            $('.modal-body').text('Something went wrong, please try again later 6');
+            $('#errorModal .modal-body').text('Something went wrong, please try again later 6');
             $('#errorModal').modal('show');
           },
           202: function(response) {
@@ -264,18 +264,18 @@ $(document).ready(function() {
 
           },
           400: function(response) {
-            $('.modal-body').text('Something went wrong, please try again later 7');
+            $('#errorModal .modal-body').text('Something went wrong, please try again later 7');
             $('#errorModal').modal('show');
           },
           401:function(response) {
             $('#myModal2').modal('show');
           },
           404: function(response) {
-            $('.modal-body').text('Something went wrong, please try again later 8');
+            $('#errorModal .modal-body').text('Something went wrong, please try again later 8');
             $('#errorModal').modal('show');
           },
           422: function(response) {
-            $('.modal-body').text(response.responseJSON.error.message);
+            $('#errorModal .modal-body').text(response.responseJSON.error.message);
             $('#errorModal').modal('show');
           },
           622: function(response) {
@@ -476,21 +476,19 @@ $(document).ready(function() {
             $('#login100-form').submit();
           },
           401: function(response) {
-            $('.modal-body').text('تأكد من اسم المستخدم و كلمة السر' );
+            $('#errorModal .modal-body').text('تأكد من اسم المستخدم و كلمة السر' );
             $('#errorModal').modal('show');
           },
           400: function(response) {
-            $('.modal-body').text('mobile and password are required' );
+            $('#errorModal .modal-body').text('mobile and password are required' );
             $('#errorModal').modal('show');
           },
           601: function(response) {
-            $('.modal-body').text('mobile and password are required' );
-            $('#errorModal').modal('show');
+            $('#myModal2').modal('show');
           }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
-          $('.modal-body').text('Something went wrong, please try again later 21' + JSON.stringify(apiLoginData) + XMLHttpRequest.responseText);
-          $('#errorModal').modal('show');
+
         },
         beforeSend: function() {
           $('.container-loader').removeClass('hidden');
