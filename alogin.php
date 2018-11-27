@@ -27,7 +27,11 @@
     if($_POST['username']) {
       $mobile = $_POST['username'];
     }
+
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
@@ -54,80 +58,42 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.4">
-	<link rel="stylesheet" type="text/css" href="css/main.css?v=1.4">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main5.css">
 <!--===============================================================================================-->
 </head>
+
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"><?php echo $identity; ?></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">الرئيسية <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">الحالة</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">تسجيل الخروج</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<div class="container-alogin" style="background-image: url('images/bg-01.jpg');">
-  <div class="col-md-5 col-sm-12" >
-    <div class="card">
 
-<div class="ads">
-  <div class="ads-timer">
-   تخطي الإعلان بعد 5 ثانية
-  </div>
+<div class="container-gr">
+<div class="full-screen-ads">
   <a id="ads-link" target="_blank" href="">
-  <img id="ads-image" src="" />
-  <div id="ads-video">
-  </div>
-  <div id="ads-text">
+  <img class="hidden" id="ads-image" src="" />
+  <div class="hidden" id="ads-video">
   </div>
 </a>
-<!--
-
--->
+</div>
+</div>
+<div id="loader" class="loader">
+  <div class="loader-text">
+    جاري التحقق
+  </div>
+  <div class="loader-image">
+    <svg width="65px"  height="65px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: none;"><circle cx="50" cy="50" fill="none" ng-attr-stroke="{{config.color}}" ng-attr-stroke-width="{{config.width}}" ng-attr-r="{{config.radius}}" ng-attr-stroke-dasharray="{{config.dasharray}}" stroke="#ffffff" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" transform="rotate(282 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>
+  </div>
+</div>
+<div id="link-btn-div" class="pulse-btn hidden">
+  <div class="pulse-btn-bg"></div>
+   <div class="pulse-btn-btn"><a id="link-btn" href="" target="_blank"><i class="fa fa-chevron-down" aria-hidden="true"></i></a></button>
+</div>
 </div>
 
-    <div class="card-body text-center">
-      <h5 class="card-title">تم تسجيل دخولك بنجاح</h5>
-
-    </div>
-    <?php if($linkstatus):?>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">  <p class="card-text">إذا لم يحدث شيء <a href="<?php echo $linkstatus; ?>" > انقر هنا </a></p></li>
-    </ul>
-  <?php  endif; ?>
-    <div class="card-body text-center">
-      <a href="#" class="card-link col-md-3"><i class="fa fa-facebook fa-2x"></i></a>
-      <a href="#" class="card-link col-md-3"><i class="fa fa-twitter fa-2x"></i></a>
-      <a href="#" class="card-link col-md-3"><i class="fa fa-instagram fa-2x"></i></a>
-    </div>
-  </div>
-  </div>
-
-
-
+<div id="welcome-text" class="welcome-text">
+مرحبا ... <a href="https://Techpeak.sy">Techpeak.sy</a>  أفضل مزود<br/> لخدمات الـ Wi-Fi
+</br/>
 </div>
-    <footer class="footer-alogin p-t-20">
-     <div class="container text-left">
-       <span class="text-muted">enjoy your free WIFI</span>
-     </div>
-   </footer>
-
-	<div id="dropDownSelect1"></div>
-
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -143,74 +109,53 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main4.js"></script>
+	<script src="js/main1.js"></script>
   <script>
-  var  canNav = false;
-  var  firstClick  = true;
-  var adId ;
-  var campaignId ;
-  var locationid ;
-  function adsTimer() {
-   setTimeout(function(){ canNav = true;}, 5000);
-   var counter = 5;
-   var interval = setInterval(function() {
-    counter--;
-    if (counter == 0) {
-      clearInterval(interval);
-    $('.ads-timer').html('تخطي الإعلان');
-    } else {
-    $('.ads-timer').html('تخطي الإعلان بعد '+counter + ' ثانية');
-    }
-}, 1000);
-  }
-
-
-  $('a').click( function(e) {
-    if(canNav){
-
-    }else if ($(this).attr('id')=="ads-link") {
-<?php if(($mobile!='') && ($location!='') ): ?>
-
-     if(firstClick) {
-       clickInfo = '{"ad_id":"'+adId+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'","campaign_id":"'+campaignId+'}';
-
-       $.ajax({
-
-           type: "POST",
-           url: "http://185.84.236.39:3000/api/clicks",
-           cache: false,
-           data:JSON.parse(clickInfo),
-           statusCode: {
-             200: function (response) {
-
-            }
-          },
-           success: function(html) {
-             firstClick = false;
-           },
-           error: function(XMLHttpRequest, textStatus, errorThrown) {
-           },
-           beforeSend: function() {
-           },
-           complete: function() {
-           }
-       });
-     }
-     <?php endif; ?>
-    } else {
-      e.preventDefault();
-      return false;
-    }
-  });
   $( document ).ready(function() {
+    var  firstClick  = true;
+    var is_mobile = false;
+    if( $('#mobile-check').css('display')=='none') {
+       is_mobile = true;
+   }
+    $('a').click( function(e) {
+     if($(this).attr('id')=="ads-link" || $(this).attr('id')=="link-btn") {
+  <?php if(($mobile!='') && ($location!='') ): ?>
+
+       if(firstClick) {
+         clickInfo = '{"ad_id":"'+adId+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'"}';
+         $.ajax({
+             type: "POST",
+             url: "http://185.84.236.39:3000/api/clicks",
+             cache: false,
+             data:JSON.parse(clickInfo),
+             statusCode: {
+               200: function (response) {
+              }
+            },
+             success: function(html) {
+               firstClick = false;
+             },
+             error: function(XMLHttpRequest, textStatus, errorThrown) {
+             },
+             beforeSend: function() {
+             },
+             complete: function() {
+             }
+         });
+       }
+       <?php endif; ?>
+      } else {
+        e.preventDefault();
+        return false;
+      }
+    });
      var adsLocId = <?php echo json_encode($location)?>;
      var adsMobile = <?php echo json_encode($mobile)?>;
       if((adsLocId != '') && (adsMobile != '') ) {
         adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds?limit=1&mobile="+adsMobile+"&location_id="+adsLocId+"&client_mobile="+adsMobile;
         console.log(adslink);
-
       } else {
-        adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds?limit=1";
+        adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds?mobile=00963933074900&limit=1&location_id=4";
         console.log(adslink);
       }
     $.ajax({
@@ -219,10 +164,10 @@
         cache: false,
         statusCode: {
           200: function (response) {
+            console.log(response);
             response = JSON.stringify(response[0]);
             response = JSON.parse(response);
             adId = response.id;
-            campaignId = response.campaign_id
             if(response.type == 'video') {
             var video = $('<video />', {
             src: response.media_link,
@@ -236,27 +181,39 @@
               var firstRun=true;
               $("#videoOfAds").on("play", function () {
                 if(firstRun) {
-                  adsTimer();
                 }
+                $('#ads-video').one('load',function() {
+                $('#ads-video').removeClass('hidden');
+                $("#link-btn-div").removeClass('hidden');
+                $("#link-btn").text(response.botton_title);
+                $("#ads-link").prop("href", response.link);
+                $("#ads-btn").prop("href", response.link);
+                $('#loader').hide();
+                });
               //********Must Get Video Not Cached !*********/
               });
-
             } else if (response.type == 'image') {
-              $('#ads-image').attr('src',response.thumb_link);
+
+              console.log(response);
+              if (is_mobile == true) {
+                if(response.portrait_link) {
+                  $('#ads-image').attr('src',response.portrait_thumb_link);
+                } else {
+                    $('#ads-image').attr('src',response.thumb_link);
+                }
+              } else {
+                $('#ads-image').attr('src',response.thumb_link);
+              }
+              $("#link-btn").text(response.botton_title);
               $("#ads-link").prop("href", response.link);
+              $("#ads-btn").prop("href", response.link);
               $('#ads-image').one('load',function() {
-              adsTimer();
+              $('#ads-image').removeClass('hidden');
+              $("#link-btn-div").removeClass('hidden');
+              $("#welcome-text").addClass('hidden');
+              $("#link-btn").prop("href", response.link);
+              $('#loader').hide();
               });
-            } else if (response.type == 'gif') {
-              $('#ads-image').attr('src',response.thumb_link);
-              $("#ads-link").prop("href", response.link);
-              $('#ads-image').one('load',function() {
-                adsTimer();
-              });
-            } else if (response.type == 'text') {
-              $("#ads-text").append(response.text);
-              $("#ads-link").prop("href", response.link);
-              adsTimer();
             } else {
               $('.modal-body').text('Something went wrong, please try again later 22');
               $('#errorModal').modal('show');
@@ -278,5 +235,8 @@
     });
   });
   </script>
+  <div id="mobile-check">
+
+  </div>
 </body>
 </html>
