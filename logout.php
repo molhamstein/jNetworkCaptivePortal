@@ -48,8 +48,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.4">
-	<link rel="stylesheet" type="text/css" href="css/main5.css?v=1.4">
+	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.8">
+	<link rel="stylesheet" type="text/css" href="css/main6.css?v=1.8">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -128,7 +128,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main5.js"></script>
+	<script src="js/main6.js"></script>
 
 </body>
 </html>

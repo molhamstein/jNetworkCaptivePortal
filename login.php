@@ -49,7 +49,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.8">
-	<link rel="stylesheet" type="text/css" href="css/main5.css?v=1.8">
+	<link rel="stylesheet" type="text/css" href="css/main6.css?v=1.8">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -350,7 +350,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main5.js?v=1.5"></script>
+	<script src="js/main6.js?v=1.6"></script>
 
 	<?php if($chapid) : ?>
 	<script type="text/javascript" src="js/md5.js"></script>
