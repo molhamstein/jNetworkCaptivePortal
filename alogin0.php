@@ -83,11 +83,13 @@
   <div class="loader-image">
     <svg width="65px"  height="65px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: none;"><circle cx="50" cy="50" fill="none" ng-attr-stroke="{{config.color}}" ng-attr-stroke-width="{{config.width}}" ng-attr-r="{{config.radius}}" ng-attr-stroke-dasharray="{{config.dasharray}}" stroke="#ffffff" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" transform="rotate(282 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>
   </div>
-
-
 </div>
 <div id="link-btn-div" class="pulse-btn hidden">
 <a  id="link-btn" >Follow Us</a>
+</div>
+<div id="welcome-text" class="welcome-text">
+  Welcome To Techpeak.sy , Your Wi-Fi <br />
+  Solutions Proivider
 </div>
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -147,7 +149,7 @@
      var adsLocId = <?php echo json_encode($location)?>;
      var adsMobile = <?php echo json_encode($mobile)?>;
       if((adsLocId != '') && (adsMobile != '') ) {
-        adslink = "http://185.84.236.39:3000/api/ADs/campaign_ad_getAdsByCriteria?limit=1&mobile="+adsMobile+"&location_id="+adsLocId+"&client_mobile="+adsMobile;
+        adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds?limit=1&mobile="+adsMobile+"&location_id="+adsLocId+"&client_mobile="+adsMobile;
         console.log(adslink);
       } else {
         adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds";
@@ -180,12 +182,16 @@
                 $('#ads-video').one('load',function() {
                 $('#ads-video').removeClass('hidden');
                 $("#link-btn-div").removeClass('hidden');
-                $("#link-btn").prop("href", response.link);
+                $("#link-btn").text(response.botton_title);
+                $("#ads-link").prop("href", response.link);
+                $("#ads-btn").prop("href", response.link);
                 $('#loader').hide();
                 });
               //********Must Get Video Not Cached !*********/
               });
             } else if (response.type == 'image') {
+
+              console.log(response);
               if (is_mobile == true) {
                 if(response.portrait_link) {
                   $('#ads-image').attr('src',response.portrait_thumb_link);
@@ -195,11 +201,13 @@
               } else {
                 $('#ads-image').attr('src',response.thumb_link);
               }
+              $("#link-btn").text(response.botton_title);
               $("#ads-link").prop("href", response.link);
               $("#ads-btn").prop("href", response.link);
               $('#ads-image').one('load',function() {
               $('#ads-image').removeClass('hidden');
               $("#link-btn-div").removeClass('hidden');
+              $("#welcome-text").addClass('hidden');
               $("#link-btn").prop("href", response.link);
               $('#loader').hide();
               });
