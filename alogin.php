@@ -59,7 +59,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main6.css">
+	<link rel="stylesheet" type="text/css" href="css/main9.css">
 <!--===============================================================================================-->
 </head>
 
@@ -109,11 +109,12 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main8.js"></script>
+	<script src="js/main9.js"></script>
   <script>
   $( document ).ready(function() {
     var  firstClick  = true;
     var is_mobile = false;
+    var camp_id;
     if( $('#mobile-check').css('display')=='none') {
        is_mobile = true;
    }
@@ -122,7 +123,7 @@
   <?php if(($mobile!='') && ($location!='') ): ?>
 
        if(firstClick) {
-         clickInfo = '{"ad_id":"'+adId+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'"}';
+         clickInfo = '{"ad_id":"'+adId+'","campaign_id":"'+camp_id+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'"}';
          $.ajax({
              type: "POST",
              url: "http://185.84.236.39:3000/api/clicks",
@@ -156,6 +157,7 @@
         console.log(adslink);
       } else {
         adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds";
+
         console.log(adslink);
       }
     $.ajax({
@@ -168,6 +170,7 @@
             response = JSON.stringify(response[0]);
             response = JSON.parse(response);
             adId = response.id;
+            camp_id=response.campaign_id;
             if(response.type == 'video') {
             var video = $('<video />', {
             src: response.media_link,
