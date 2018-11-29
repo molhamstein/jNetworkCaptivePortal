@@ -91,8 +91,7 @@
 </div>
 
 <div id="welcome-text" class="welcome-text">
-مرحبا ... <a href="https://Techpeak.sy">Techpeak.sy</a>  أفضل مزود<br/> لخدمات الـ Wi-Fi
-</br/>
+مرحبا بك في  <a href="http://techpeak.sy">Techpeak.sy</a> <br>  المشروع الرائد بخدمات Wifi
 </div>
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
