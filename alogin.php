@@ -59,7 +59,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main9.css">
+	<link rel="stylesheet" type="text/css" href="css/main10.css">
 <!--===============================================================================================-->
 </head>
 
@@ -84,7 +84,7 @@
     <svg width="65px"  height="65px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: none;"><circle cx="50" cy="50" fill="none" ng-attr-stroke="{{config.color}}" ng-attr-stroke-width="{{config.width}}" ng-attr-r="{{config.radius}}" ng-attr-stroke-dasharray="{{config.dasharray}}" stroke="#ffffff" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" transform="rotate(282 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>
   </div>
 </div>
-<div id="link-btn-div" class="pulse-btn hidden">
+<div id="link-btn-div" class="pulse-btn ">
   <div class="pulse-btn-bg"></div>
    <div class="pulse-btn-btn"><a id="link-btn" href="" target="_blank"><i class="fa fa-chevron-down" aria-hidden="true"></i></a></button>
 </div>
@@ -109,12 +109,11 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main9.js"></script>
+	<script src="js/main10.js"></script>
   <script>
   $( document ).ready(function() {
     var  firstClick  = true;
     var is_mobile = false;
-    var camp_id;
     if( $('#mobile-check').css('display')=='none') {
        is_mobile = true;
    }
@@ -123,7 +122,7 @@
   <?php if(($mobile!='') && ($location!='') ): ?>
 
        if(firstClick) {
-         clickInfo = '{"ad_id":"'+adId+'","campaign_id":"'+camp_id+'","client_id":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'"}';
+         clickInfo = '{"ad_id":"'+adId+'","mobile":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'","campaign_id":"'+campaignId+'"}';
          $.ajax({
              type: "POST",
              url: "http://185.84.236.39:3000/api/clicks",
@@ -153,11 +152,10 @@
      var adsLocId = <?php echo json_encode($location)?>;
      var adsMobile = <?php echo json_encode($mobile)?>;
       if((adsLocId != '') && (adsMobile != '') ) {
-        adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds?limit=1&mobile="+adsMobile+"&location_id="+adsLocId+"&client_mobile="+adsMobile;
+        adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds?limit=1&mobile="+adsMobile+"&location_id="+adsLocId;
         console.log(adslink);
       } else {
         adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds";
-
         console.log(adslink);
       }
     $.ajax({
@@ -170,7 +168,7 @@
             response = JSON.stringify(response[0]);
             response = JSON.parse(response);
             adId = response.id;
-            camp_id=response.campaign_id;
+            campaignId = response.campaign_id;
             if(response.type == 'video') {
             var video = $('<video />', {
             src: response.media_link,

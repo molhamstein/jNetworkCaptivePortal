@@ -49,7 +49,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.9">
-	<link rel="stylesheet" type="text/css" href="css/main9.css?v=1.9">
+	<link rel="stylesheet" type="text/css" href="css/main10.css?v=1.9">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -200,7 +200,7 @@
           </span>
         </div>
         <div class="txt1 col-md-12 text-left">
-          v1.0.3
+          v1.2.1
         </div>
 			</form>
 			<form id="forget100-form"  class="forget100-form validate-form ">
@@ -349,7 +349,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main9.js?v=1.9"></script>
+	<script src="js/main10.js?v=1.9"></script>
 
 	<?php if($chapid) : ?>
 	<script type="text/javascript" src="js/md5.js"></script>
