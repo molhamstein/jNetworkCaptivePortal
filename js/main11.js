@@ -156,11 +156,9 @@ $(document).ready(function() {
         showValidate(inputs[i]);
         check = false;
       }
-
     }
     if (check) {
       var data = $('#signup100-form').serializeJSON();
-
       $.ajax({
         type: "POST",
         url: "/api/clients",
@@ -461,8 +459,9 @@ $(document).ready(function() {
       var data = $('#login100-form').serializeJSON();
       data.mobile = encodeURIComponent(data.username);
       var apiLoginData = {}
-      apiLoginData.mobile = data.username
-      apiLoginData.password = data.password
+      apiLoginData.mobile = data.username;
+      apiLoginData.password = data.password;
+      apiLoginData.location_id = 1;
       $.ajax({
         type: "POST",
         url: "/api/clients/login",
@@ -473,7 +472,14 @@ $(document).ready(function() {
         statusCode: {
           200: function(response) {
             $('#extra-data').val(response.userId);
-            $('#login100-form').submit();
+            if(response.type_location=="automatic"){
+              $('#login100-form').formShow('#autoactive100-form', 'fadeOutDown', 'fadeInUp');
+            }else if (response.type_location=="manual") {
+              $('#errorModal .modal-body').text('يرجى تفعيل الحساب لتسجيل الدخول ' );
+              $('#errorModal').modal('show');
+            }else if (response.type_location=="free") {
+              $('#login100-form').submit()
+            }
           },
           401: function(response) {
             $('#errorModal .modal-body').text('تأكد من اسم المستخدم و كلمة السر' );
@@ -485,6 +491,65 @@ $(document).ready(function() {
           },
           601: function(response) {
             $('#myModal2').modal('show');
+          },
+          627: function(response) {
+            $('#errorModal .modal-body').text('يرجى تفعيل الحساب و المحاولة لاحقاً ');
+            $('#errorModal').modal('show');
+          }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+
+        },
+        beforeSend: function() {
+          $('.container-loader').removeClass('hidden');
+          $('.container-loader').addClass('flex');
+        },
+        complete: function() {
+          $('.container-loader').removeClass('flex');
+          $('.container-loader').addClass('hidden');
+        }
+      });
+    }
+  });
+  /*================================================================*/
+  $('#autoactive100-form-btn').click(function(evt) {
+    evt.preventDefault();
+    var inputs = $('#autoactive100-form .validate-input .input100');
+    var check = true;
+    for (var i = 0; i < inputs.length; i++) {
+      if (validate(inputs[i]) == false) {
+        showValidate(inputs[i]);
+        check = false;
+      }
+    }
+    if (check) {
+      var data = $('#autoactive100-form').serializeJSON();
+      var apiActiveData = {};
+      apiActiveData.code = $("#autoactive100-form   input[name=code]").val();
+      console.log(apiActiveData.code);
+      apiActiveData.location_id = 1;
+      $.ajax({
+        type: "POST",
+        url: "/api/locationCode/useCode",
+        data: JSON.stringify(apiActiveData),
+        cache: false,
+        async: true,
+        contentType: 'application/json',
+        statusCode: {
+          200: function(response) {
+          $('#sucModal').modal('show');
+          setTimeout($('#login100-form').submit(), 3000);
+          },620: function(response) {
+            $('#errorModal .modal-body').text('يرجى التأكد من الكود المدخل , الكود المدخل غير صحيح' );
+            $('#errorModal').modal('show');
+          },
+          621: function(response) {
+            $('#errorModal .modal-body').text('الكود غير مباع ' );
+            $('#errorModal').modal('show');
+          },
+          628: function(response) {
+            $('#errorModal .modal-body').text('الكود المدخل منتهي الصلاحية' );
+            $('#errorModal').modal('show');
           }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
