@@ -124,7 +124,7 @@
          clickInfo = '{"ad_id":"'+adId+'","mobile":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'","campaign_id":"'+campaignId+'"}';
          $.ajax({
              type: "POST",
-             url: "http://185.84.236.39:3000/api/clicks",
+             url: "https://techpeak-net.com/api/clicks",
              cache: false,
              data:JSON.parse(clickInfo),
              statusCode: {
@@ -151,10 +151,10 @@
      var adsLocId = <?php echo json_encode($location)?>;
      var adsMobile = <?php echo json_encode($mobile)?>;
       if((adsLocId != '') && (adsMobile != '') ) {
-        adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds?limit=1&mobile="+adsMobile+"&location_id="+adsLocId;
+        adslink = "https://techpeak-net.com/api/campaign_ads/getAds?limit=1&mobile="+adsMobile+"&location_id="+adsLocId;
         console.log(adslink);
       } else {
-        adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds";
+        adslink = "https://techpeak-net.com/api/campaign_ads/getAds";
         console.log(adslink);
       }
     $.ajax({
