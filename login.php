@@ -48,8 +48,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.9.1">
-	<link rel="stylesheet" type="text/css" href="css/main11.css?v=1.9.1">
+	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.9.2">
+	<link rel="stylesheet" type="text/css" href="css/main12.css?v=1.9.2">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -69,6 +69,21 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div dir="rtl" id="sucModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">تم التفعيل بنجاح</h4>
+      </div>
+      <div class="modal-body">
+        <p>جاري تسجيل الدخول .....</p>
       </div>
     </div>
 
@@ -202,6 +217,23 @@
         <div class="txt1 col-md-12 text-left">
           v1.2.1
         </div>
+			</form>
+      <form id="autoactive100-form"  class="autoactive100-form validate-form ">
+				<div  class="login100-form-backArrow">
+					<i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+				</div>
+				<span  class="autoactive100-form-title p-b-37">
+	أدخل رمز التفعيل لتفعيل حسابك
+				</span>
+				<div class="wrap-input100  m-b-20">
+					<input class="input100" type="text" name="code" placeholder="رقم التفعيل">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="container-forget100-form-btn">
+					<button id="autoactive100-form-btn" class="autoactive100-form-btn">
+					تفعيل الحساب
+					</button>
+				</div>
 			</form>
 			<form id="forget100-form"  class="forget100-form validate-form ">
 				<div  class="login100-form-backArrow">
@@ -349,7 +381,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main11.js?v=1.9.1"></script>
+	<script src="js/main12.js?v=1.9.2"></script>
 
 	<?php if($chapid) : ?>
 	<script type="text/javascript" src="js/md5.js"></script>

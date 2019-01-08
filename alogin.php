@@ -19,8 +19,8 @@
     $uptime=$_POST['uptime'];
     $refreshtimeout=$_POST['refresh-timeout'];
     $linkstatus=$_POST['link-status'];
-    $location = '';
-    $mobile = '';
+    $location = '1';
+    $mobile = '00963933074900';
     if($_POST['location-id']) {
       $location=$_POST['location-id'];
     }
@@ -59,7 +59,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main11.css?v=1.9.1">
+	<link rel="stylesheet" type="text/css" href="css/main12.css?v=1.9.2">
 <!--===============================================================================================-->
 </head>
 
@@ -108,7 +108,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main11.js?v=1.9.1"></script>
+	<script src="js/main12.js?v=1.9.2"></script>
   <script>
   $( document ).ready(function() {
     var  firstClick  = true;
