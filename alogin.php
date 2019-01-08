@@ -19,8 +19,8 @@
     $uptime=$_POST['uptime'];
     $refreshtimeout=$_POST['refresh-timeout'];
     $linkstatus=$_POST['link-status'];
-    $location = '';
-    $mobile = '';
+    $location = '1';
+    $mobile = '00963933074900';
     if($_POST['location-id']) {
       $location=$_POST['location-id'];
     }
@@ -59,7 +59,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main10.css">
+	<link rel="stylesheet" type="text/css" href="css/main12.css?v=1.9.2">
 <!--===============================================================================================-->
 </head>
 
@@ -84,15 +84,14 @@
     <svg width="65px"  height="65px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: none;"><circle cx="50" cy="50" fill="none" ng-attr-stroke="{{config.color}}" ng-attr-stroke-width="{{config.width}}" ng-attr-r="{{config.radius}}" ng-attr-stroke-dasharray="{{config.dasharray}}" stroke="#ffffff" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" transform="rotate(282 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>
   </div>
 </div>
-<div id="link-btn-div" class="pulse-btn ">
+<div id="link-btn-div" class="pulse-btn hidden">
   <div class="pulse-btn-bg"></div>
    <div class="pulse-btn-btn"><a id="link-btn" href="" target="_blank"><i class="fa fa-chevron-down" aria-hidden="true"></i></a></button>
 </div>
 </div>
 
 <div id="welcome-text" class="welcome-text">
-مرحبا ... <a href="https://Techpeak.sy">Techpeak.sy</a>  أفضل مزود<br/> لخدمات الـ Wi-Fi
-</br/>
+مرحبا بك في  <a href="http://techpeak.sy">Techpeak.sy</a> <br>  المشروع الرائد بخدمات Wifi
 </div>
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -109,7 +108,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main10.js"></script>
+	<script src="js/main12.js?v=1.9.2"></script>
   <script>
   $( document ).ready(function() {
     var  firstClick  = true;
@@ -125,7 +124,7 @@
          clickInfo = '{"ad_id":"'+adId+'","mobile":"'+<?php echo json_encode($mobile); ?>+'","location_id":"'+<?php echo json_encode($location); ?>+'","campaign_id":"'+campaignId+'"}';
          $.ajax({
              type: "POST",
-             url: "http://185.84.236.39:3000/api/clicks",
+             url: "https://techpeak-net.com/api/clicks",
              cache: false,
              data:JSON.parse(clickInfo),
              statusCode: {
@@ -152,10 +151,10 @@
      var adsLocId = <?php echo json_encode($location)?>;
      var adsMobile = <?php echo json_encode($mobile)?>;
       if((adsLocId != '') && (adsMobile != '') ) {
-        adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds?limit=1&mobile="+adsMobile+"&location_id="+adsLocId;
+        adslink = "https://techpeak-net.com/api/campaign_ads/getAds?limit=1&mobile="+adsMobile+"&location_id="+adsLocId;
         console.log(adslink);
       } else {
-        adslink = "http://185.84.236.39:3000/api/campaign_ads/getAds";
+        adslink = "https://techpeak-net.com/api/campaign_ads/getAds";
         console.log(adslink);
       }
     $.ajax({
