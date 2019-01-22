@@ -232,7 +232,7 @@ $(document).ready(function() {
       var data = "mobile=" + mobileNum + "&" + "code=" + code;
       $.ajax({
         type: "GET",
-        url: "/api/clients/confirm2",
+        url: "/api/clients/confirmSMS",
         data: data,
         cache: false,
         contentType: 'application/json',

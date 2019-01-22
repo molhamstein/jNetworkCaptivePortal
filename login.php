@@ -48,8 +48,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.9.2">
-	<link rel="stylesheet" type="text/css" href="css/main12.css?v=1.9.2">
+	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.9.3">
+	<link rel="stylesheet" type="text/css" href="css/main12.css?v=1.9.3">
 </head>
 <body>
 <div class="container-loader hidden">
@@ -214,7 +214,7 @@
           </span>
         </div>
         <div class="txt1 col-md-12 text-left">
-          v1.2.1
+          v1.2.3
         </div>
 			</form>
       <form id="autoactive100-form"  class="autoactive100-form validate-form ">
@@ -380,12 +380,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-<<<<<<< HEAD
-	<script src="js/main11.js?v=1.9.1"></script>
-=======
-	<script src="js/main12.js?v=1.9.2"></script>
->>>>>>> 87832d35946b76f0fa9a8485af583a303964efb0
-
+<script src="js/main12.js?v=1.9.3"></script>
 	<?php if($chapid) : ?>
 	<script type="text/javascript" src="js/md5.js"></script>
 	<script type="text/javascript">
