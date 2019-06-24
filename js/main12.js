@@ -466,7 +466,7 @@ $(document).ready(function() {
       data.mobile = encodeURIComponent(data.mobile);
       $.ajax({
         type: "POST",
-        url: "https://techpeak-net.com/api/clients/resendVerificationCode",
+        url: "/api/clients/resendVerificationCode",
         data: JSON.stringify(data),
         cache: false,
         contentType: 'application/json',
