@@ -273,10 +273,10 @@
 					<i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
 				</div>
 				<span  class="verify100-form-title p-b-37">
-	يرجى إدخال الرمز و رقم الهاتف الخاص بحسابك
+	يرجى إدخال رمز التفعيل الذي وصلك كرسالة نصية و رقم الهاتف الخاص بك
 				</span>
 				<div class="wrap-input100 validate-input m-b-20" data-validate=" يرجى إدخال رقم الهاتف و التأكد من إدخاله بشكل صحيح">
-					<input class="input100" type="text" name="mobile" placeholder="رقم الهاتف">
+					<input class="input100" type="text" name="mobile" autocomplete="username" placeholder="رقم الهاتف">
 					<span class="focus-input100"></span>
 				</div>
 				<div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال الرمز الخاص بك">

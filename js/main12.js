@@ -466,20 +466,20 @@ $(document).ready(function() {
       data.mobile = encodeURIComponent(data.mobile);
       $.ajax({
         type: "POST",
-        url: "/api/clients/resendVerificationCode",
+        url: "https://techpeak-net.com/api/clients/resendVerificationCode",
         data: JSON.stringify(data),
         cache: false,
         contentType: 'application/json',
         statusCode: {
           200: function(response) {
-            $('#resendVerify100-form').formShow('#confirmreset100-form', 'fadeOutDown', 'fadeInUp');
+            $('#resendVerify100-form').formShow('#verify100-form', 'fadeOutDown', 'fadeInUp');
           },
           604: function(response) {
             $('.modal-body').text('لم يتم تسجيل هذا الحساب مسبقأً الرجاء تسجيل حساب جديد او التحقق من الرقم');
             $('#errorModal').modal('show');
           },
           204: function(response) {
-            $('#resendVerify100-form').formShow('#confirmreset100-form', 'fadeOutDown', 'fadeInUp');
+            $('#resendVerify100-form').formShow('#verify100-form', 'fadeOutDown', 'fadeInUp');
           },
           404: function(response) {
             $('.modal-body').text(response.responseJSON.error.message);
@@ -497,6 +497,8 @@ $(document).ready(function() {
         error: function(XMLHttpRequest, textStatus, errorThrown) {
           $('.modal-body').text('Something went wrong, please try again later 20');
           $('#errorModal').modal('show');
+          $('.container-loader').removeClass('flex');
+          $('.container-loader').addClass('hidden');
         },
         beforeSend: function() {
           $('.container-loader').removeClass('hidden');
