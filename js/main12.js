@@ -53,6 +53,12 @@ $(document).ready(function() {
     $(this).formShow('#forget100-form', 'fadeOutDown', 'fadeInUp');
   });
   /*==================================================================
+  [ Hide Login Form And Show forget Form ]*/
+  $("#resendVerify100-form-show").click(function(evt) {
+    evt.preventDefault();
+    $(this).formShow('#resendVerify100-form', 'fadeOutDown', 'fadeInUp');
+  });
+  /*==================================================================
   [ Hide Forget Form And Show verify Form ]*/
   $("#verify100-form-show").click(function(evt) {
     evt.preventDefault();
@@ -325,7 +331,7 @@ $(document).ready(function() {
             if (response.statusCode == '604') {
               $('.modal-body').text('الكود المدخل غير صحيح !');
               $('#errorModal').modal('show');
-            } else if (response.status == 402) {
+            } else if (response.statusCode == 204) {
               $('#confirmreset100-form').formShow('#login100-form', 'fadeOutDown', 'fadeInUp');
             } else {
               $('.modal-body').text('Something went wrong, please try again later 10');
@@ -413,6 +419,67 @@ $(document).ready(function() {
           400: function(response) {
             $('.modal-body').text('Something went wrong, please try again later 19');
             $('#errorModal').modal('show');
+          },
+          404: function(response) {
+            $('.modal-body').text(response.responseJSON.error.message);
+            $('#errorModal').modal('show');
+          },
+          422: function(response) {
+            console.log('422');
+            $('.modal-body').text(response.responseJSON.error.message);
+            $('#errorModal').modal('show');
+          },
+        },
+        success: function(html) {
+
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+          $('.modal-body').text('Something went wrong, please try again later 20');
+          $('#errorModal').modal('show');
+        },
+        beforeSend: function() {
+          $('.container-loader').removeClass('hidden');
+          $('.container-loader').addClass('flex');
+        },
+        complete: function() {
+          $('.container-loader').removeClass('flex');
+          $('.container-loader').addClass('hidden');
+        }
+      });
+    }
+  });
+    /*==================================================================
+  [ submit Resend Verif Code ]*/
+  $('#resendVerify100-form-btn').click(function(evt) {
+    evt.preventDefault();
+    var inputs = $('#resendVerify100-form .validate-input .input100');
+    var check = true;
+    for (var i = 0; i < inputs.length; i++) {
+      if (validate(inputs[i]) == false) {
+        showValidate(inputs[i]);
+        check = false;
+      }
+    }
+
+    if (check) {
+      var data = $('#resendVerify100-form').serializeJSON();
+      data.mobile = encodeURIComponent(data.mobile);
+      $.ajax({
+        type: "POST",
+        url: "/api/clients/resendVerificationCode",
+        data: JSON.stringify(data),
+        cache: false,
+        contentType: 'application/json',
+        statusCode: {
+          200: function(response) {
+            $('#resendVerify100-form').formShow('#confirmreset100-form', 'fadeOutDown', 'fadeInUp');
+          },
+          604: function(response) {
+            $('.modal-body').text('لم يتم تسجيل هذا الحساب مسبقأً الرجاء تسجيل حساب جديد او التحقق من الرقم');
+            $('#errorModal').modal('show');
+          },
+          204: function(response) {
+            $('#resendVerify100-form').formShow('#confirmreset100-form', 'fadeOutDown', 'fadeInUp');
           },
           404: function(response) {
             $('.modal-body').text(response.responseJSON.error.message);

@@ -48,8 +48,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.9.3">
-	<link rel="stylesheet" type="text/css" href="css/main12.css?v=1.9.3">
+	<link rel="stylesheet" type="text/css" href="css/util.css?v=1.10.0">
+	<link rel="stylesheet" type="text/css" href="css/main12.css?v=1.10.0">
 </head>
 <body>
 <div class="container-loader hidden">
@@ -214,7 +214,7 @@
           </span>
         </div>
         <div class="txt1 col-md-12 text-left">
-          v1.2.3
+          v1.3.3
         </div>
 			</form>
       <form id="autoactive100-form"  class="autoactive100-form validate-form ">
@@ -251,6 +251,23 @@
 					</button>
 				</div>
 			</form>
+			<form id="resendVerify100-form"  class="resendVerify100-form validate-form ">
+				<div  class="login100-form-backArrow">
+					<i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+				</div>
+				<span  class="resendVerify100-form-title p-b-37">
+	أدخل رقم الهاتف الخاص بك و سيتم إرسال رسالة برمز التفعيل
+				</span>
+				<div class="wrap-input100 validate-input m-b-20" data-validate=" يرجى إدخال رقم الهاتف و التأكد من إدخاله بشكل صحيح">
+					<input class="input100" type="text" name="mobile" placeholder="رقم الهاتف">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="container-resendVerify100-form-btn">
+					<button id="resendVerify100-form-btn" class="resendVerify100-form-btn">
+					إرسال الرمز
+					</button>
+				</div>
+			</form>
 			<form id="verify100-form"  class="verify100-form validate-form ">
 				<div  class="login100-form-backArrow">
 					<i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
@@ -271,9 +288,14 @@
 					أدخل الرمز
 					</button>
 				</div>
+
+				<span class="resendVerify-100-subtitle">
+	لم يصلك رمز التفعيل ؟
+				</span>
+				<a id="resendVerify100-form-show" class="verify100-form-title p-b-37 p-t-20 fs-13 text-right" href="#">اعادة الارسال</a>
 			</form>
 
-      <form id="confirmreset100-form"  class="confirmreset100-form validate-form ">
+      <form id="confirmreset100-form" class="confirmreset100-form validate-form ">
         <div  class="login100-form-backArrow">
           <i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
         </div>
@@ -281,11 +303,12 @@
           يرجى إدخال كلمة المرور الجديدة
         </span>
         <div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال رمز التحقق">
-          <input class="input100" type="text" name="ncode" placeholder="رمز التحقق">
+		   <input style="display:none" type="password" name="fakepasswordremembered"/>  <!-- a fake filed to grapp the autocomplete value from chrome -->
+          <input class="input100" type="text" name="ncode" autofill="off" autocomplete="off" placeholder="رمز التحقق">
           <span class="focus-input100"></span>
         </div>
         <div class="wrap-input100 validate-input m-b-20" data-validate="يرجى إدخال كلمة المرور">
-          <input class="input100" type="password" name="newPassword" placeholder="كلمة المرور الجديد">
+          <input class="input100" type="password" name="newPassword" autocomplete="off" placeholder="كلمة المرور الجديد">
           <span class="focus-input100"></span>
         </div>
         <div class="container-confirmreset100-form-btn">
@@ -303,7 +326,8 @@
 					حساب جديد
 				</span>
 				<div class="wrap-input100 m-b-20" data-validate="يرجى إدخال الاسم">
-					<input class="input100" type="text" name="username" placeholder="الاسم(اختياري)">
+					<input style="display:none" type="password" name="fakepasswordremembered"/>  <!-- a fake filed to grapp the autocomplete value from chrome -->
+					<input class="input100" type="text" name="username" autocomplete="userNameField" autofill="off" placeholder="الاسم(اختياري)">
 					<span class="focus-input100"></span>
 				</div>
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "يرجى إدخال كلمة السر">
@@ -380,7 +404,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-<script src="js/main12.js?v=1.9.3"></script>
+<script src="js/main12.js?v=1.10.0"></script>
 	<?php if($chapid) : ?>
 	<script type="text/javascript" src="js/md5.js"></script>
 	<script type="text/javascript">

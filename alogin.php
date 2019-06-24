@@ -59,7 +59,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main12.css?v=1.9.3">
+	<link rel="stylesheet" type="text/css" href="css/main12.css?v=1.10.0">
 <!--===============================================================================================-->
 </head>
 
@@ -108,7 +108,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main12.js?v=1.9.3"></script>
+	<script src="js/main12.js?v=1.10.0"></script>
   <script>
   $( document ).ready(function() {
     var  firstClick  = true;
